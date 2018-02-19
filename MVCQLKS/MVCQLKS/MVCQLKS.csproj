@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,7 +218,8 @@
     <Content Include="Models\QLKSModel.edmx.diagram">
       <DependentUpon>QLKSModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Views\Category\_PartialGetList.cshtml" />
+    <Content Include="Views\Category\_PartialList.cshtml" />
+    <Content Include="Views\Room\ListByCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
