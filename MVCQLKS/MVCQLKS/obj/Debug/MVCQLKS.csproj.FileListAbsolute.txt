@@ -1,0 +1,85 @@
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\csc.exe
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\vbc.exe
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\VBCSCompiler.exe
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\MVCQLKS.dll.config
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\MVCQLKS.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\MVCQLKS.pdb
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Helpers.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Mvc.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Razor.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Razor.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Razor.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Razor.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Helpers.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\bin\System.Web.Mvc.xml
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\obj\Debug\MVCQLKS.csprojResolveAssemblyReference.cache
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\obj\Debug\MVCQLKS.dll
+C:\Users\Tu Huynh\Desktop\MVCQLKS\MVCQLKS\obj\Debug\MVCQLKS.pdb
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\csc.exe
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\System.Collections.Immutable.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\System.Reflection.Metadata.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\vbc.exe
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\VBCSCompiler.exe
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\roslyn\VBCSCompiler.exe.config
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\ApplicationInsights.config
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\MVCQLKS.dll.config
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\MVCQLKS.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\MVCQLKS.pdb
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.Agent.Intercept.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.DependencyCollector.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.Web.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.WindowsServer.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.ApplicationInsights.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Helpers.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Mvc.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Razor.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Deployment.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Razor.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.DependencyCollector.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.Web.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.AI.WindowsServer.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.ApplicationInsights.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Razor.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Deployment.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Webpages.Razor.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Helpers.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\System.Web.Mvc.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\obj\Debug\MVCQLKS.csprojResolveAssemblyReference.cache
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\obj\Debug\MVCQLKS.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\obj\Debug\MVCQLKS.pdb
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\EntityFramework.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\EntityFramework.SqlServer.dll
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\EntityFramework.xml
+D:\GitHub\DoAnNMCNPM_QLKS\DoAnNMCNPM_QLKS\MVCQLKS\MVCQLKS\bin\EntityFramework.SqlServer.xml
