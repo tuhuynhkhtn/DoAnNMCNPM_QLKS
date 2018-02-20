@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <i class="fas fa-building"></i>
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -94,6 +94,11 @@
                         <div class="panel-heading">Danh mục phòng</div>
                             @Html.Action("GetList", "Category")
                     </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Quản lý</div>
+                        <a href="@Url.Action("IndexManageCategory", "ManageRoom")" class="list-group-item">Danh mục phòng</a>
+                        <a href="@Url.Action("IndexManageRoom", "ManageRoom")" class="list-group-item">Danh sách phòng</a>
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <div class="panel panel-primary">
@@ -110,6 +115,7 @@
     </div>
     <script src="~/Content/js/jquery.min.js"></script>
         <script src="~/Content/js/bootstrap.min.js"></script>
+    <script defer src="~/Content/js/fontawesome-all.js"></script>
         @if (IsSectionDefined("script"))
         {
             @RenderSection("script")

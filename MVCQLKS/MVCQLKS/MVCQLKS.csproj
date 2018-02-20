@@ -133,6 +133,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\js\additional-methods.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\fontawesome-all.js" />
     <Content Include="Content\js\jquery-3.1.1.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\jquery.unobtrusive-ajax.min.js" />
@@ -158,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageRoomController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,6 +222,8 @@
     </Content>
     <Content Include="Views\Category\_PartialList.cshtml" />
     <Content Include="Views\Room\ListByCategory.cshtml" />
+    <Content Include="Views\ManageRoom\IndexManageRoom.cshtml" />
+    <Content Include="Views\ManageRoom\IndexManageCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
