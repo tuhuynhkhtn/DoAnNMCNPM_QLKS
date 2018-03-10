@@ -1,9 +1,12 @@
-﻿<html>
+﻿<!DOCTYPE html>
+
+<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+
     @if (IsSectionDefined("style"))
     {
         @RenderSection("style")
@@ -73,7 +76,8 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
+                        <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
+                        <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -89,36 +93,36 @@
             </div><!-- /.container-fluid -->
         </nav>
         <div class="row">
-                <div class="col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Danh mục phòng</div>
-                            @Html.Action("GetList", "Category")
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Quản lý</div>
-                        <a href="@Url.Action("IndexManageCategory", "ManageRoom")" class="list-group-item">Danh mục phòng</a>
-                        <a href="@Url.Action("IndexManageRoom", "ManageRoom")" class="list-group-item">Danh sách phòng</a>
-                    </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Danh mục phòng</div>
+                    @Html.Action("GetList", "Category")
                 </div>
-                <div class="col-md-9">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">@RenderSection("ContentHeader")</div>
-                        <div class="panel-body">
-                            @RenderBody()
-                        </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Quản lý</div>
+                    <a href="@Url.Action("IndexManageCategory", "ManageRoom")" class="list-group-item">Danh mục phòng</a>
+                    <a href="@Url.Action("IndexManageRoom", "ManageRoom")" class="list-group-item">Danh sách phòng</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">@RenderSection("ContentHeader")</div>
+                    <div class="panel-body">
+                        @RenderBody()
                     </div>
                 </div>
             </div>
-            <footer>
-                Copyright &copy; @DateTime.Now.Year
-            </footer>
+        </div>
+        <footer>
+            Copyright &copy; @DateTime.Now.Year
+        </footer>
     </div>
     <script src="~/Content/js/jquery.min.js"></script>
-        <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
     <script defer src="~/Content/js/fontawesome-all.js"></script>
-        @if (IsSectionDefined("script"))
-        {
-            @RenderSection("script")
-        }
+    @if (IsSectionDefined("script"))
+    {
+        @RenderSection("script")
+    }
 </body>
 </html>

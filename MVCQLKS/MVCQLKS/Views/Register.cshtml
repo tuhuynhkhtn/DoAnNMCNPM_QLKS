@@ -1,0 +1,47 @@
+﻿@using MVCQLKS.Models
+
+@model User
+
+@section ContentHeader{
+    Đăng ký Tài khoản
+}
+
+<div class="row">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="control-group">
+            @Html.LabelFor(m => m.f_UserName, "Tên Đăng nhập:", new { @class = "col-md-3 control-label" })
+            <div class="col-sm-8 form-control-static">
+                @Html.TextBoxFor(m => m.f_UserName, new { @class = "form-control", placeholder = "Username" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.f_Password, "Mật khẩu:", new { @class = "col-md-3 control-label" })
+            <div class="col-sm-8 form-control-static">
+                @Html.TextBoxFor(m => m.f_Password, new { @class = "form-control", placeholder = "Password" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.f_Password, "Nhập lại Mật khẩu:", new { @class = "col-md-3 control-label" })
+            <div class="col-sm-8 form-control-static">
+                @Html.TextBoxFor(m => m.f_Password, new { @class = "form-control", placeholder = "Confirm" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.f_Name, "Họ tên:", new { @class = "col-md-3 control-label" })
+            <div class="col-sm-8 form-control-static">
+                @Html.TextBoxFor(m => m.f_Name, new { @class = "form-control", placeholder = "Name" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-offset-7 form-control-static">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check"></i>
+                    Sign up
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+
