@@ -16,8 +16,8 @@ namespace MVCQLKS.Models
     {
         public int RoomID { get; set; }
         public string RoomName { get; set; }
-        public Nullable<int> CatID { get; set; }
-        public int Price { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int CatID { get; set; }
+        public Nullable<int> Price { get; set; }
+        public int Status { get; set; }
     }
 }

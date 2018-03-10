@@ -49,9 +49,9 @@
     </Key>
     <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CatID" Type="Int32" />
-    <Property Name="Price" Type="Int32" Nullable="false" />
-    <Property Name="Status" Type="Int32" />
+    <Property Name="CatID" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
