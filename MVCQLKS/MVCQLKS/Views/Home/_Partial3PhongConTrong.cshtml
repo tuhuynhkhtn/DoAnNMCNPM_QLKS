@@ -1,0 +1,85 @@
+﻿@using MVCQLKS.Models
+@model IList<Room>
+
+@section style{
+    <style type="text/css">
+        .thumbnail {
+            min-height: 90px;
+        }
+    </style>
+}
+
+@section ContentHeader{
+    Danh sách phòng
+}
+
+@if (Model.Count == 0)
+{
+    <p>Không có phòng</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>@p.RoomName</h3>
+                        @*<h4>Giá: @string.Format("{0:C}", @p.Price)</h4>*@
+                        <h4>Giá: @string.Format("{0:N0} đ", @p.Price)</h4>
+                        <p>
+                            Tình trạng:
+                            @if (@p.Status > 0)
+                    {
+                                @:Đã cho thuê
+                    }
+                    else
+                    {
+                                @:Còn trống
+                    }
+                        </p>
+                        <p>
+                            @*<a href="#" class="btn btn-primary" role="button" disabled="disabled">Thuê phòng</a>*@
+                            <a href="#" class="btn btn-default" role="button">Trả phòng</a>
+                            <a href="#" class="btn btn-primary" role="button">Thuê phòng</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    if (ViewBag.totalPage > 1)
+    {
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="?page=@(ViewBag.curPage-1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @for (int i = 1; i <= ViewBag.totalPage; i++)
+                {
+                    if (i == ViewBag.curPage)
+                    {
+                        <li class="active"><a href="?page=@i">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="?page=@i">@i</a></li>
+                    }
+
+                    @*<li><a href="@Url.Action("GetListByCategory", "Rom", new { catId =  ViewBag.catId, page = @i})">@i</a></li>*@
+                }
+
+                <li>
+                    <a href="?page=@(ViewBag.curPage+1)" aria-label="Previous">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    }
+
+}

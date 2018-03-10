@@ -20,6 +20,12 @@ namespace MVCQLKS.Controllers
             using (var dc = new QLKSEntities())
             {
                 int totalP = dc.Rooms.Where(p => p.CatID == id).Count();
+
+                if (totalP == 0)
+                {
+                    return View("ListByCategory", new List<Room>());
+                }
+
                 int nPage = totalP / nPerPage + (totalP % nPerPage > 0 ? 1 : 0);
                 if(page < 1)
                 {
