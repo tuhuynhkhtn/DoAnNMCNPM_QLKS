@@ -22,10 +22,10 @@ namespace MVCQLKS.Controllers
             {
                 var l = dc.Rooms
                     .Where(p => p.Status == 0)
-                    .OrderBy(p => p.RoomID)
-                    .OrderByDescending(p => p.Price)
+                    .OrderByDescending(p => p.RoomID)
                     .Take(3)
                     .ToList();
+
                 return PartialView("_Partial3PhongConTrong", l);
             }
         }
@@ -38,9 +38,9 @@ namespace MVCQLKS.Controllers
                 var l = dc.Rooms
                     .Where(p => p.Status == 1)
                     .OrderBy(p => p.RoomID)
-                    .OrderByDescending(p => p.Price)
                     .Take(3)
                     .ToList();
+
                 return PartialView("_Partial3PhongDaChoThue", l);
             }
         }

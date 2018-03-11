@@ -50,10 +50,10 @@
     <EntitySetMapping Name="Rooms">
       <EntityTypeMapping TypeName="QLKSModel.Room">
         <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="RoomID" ColumnName="RoomID" />
           <ScalarProperty Name="RoomName" ColumnName="RoomName" />
           <ScalarProperty Name="CatID" ColumnName="CatID" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>

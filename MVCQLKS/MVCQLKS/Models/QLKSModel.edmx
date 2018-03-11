@@ -130,8 +130,8 @@
           <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CatID" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" />
           <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -206,10 +206,10 @@
           <EntitySetMapping Name="Rooms">
             <EntityTypeMapping TypeName="QLKSModel.Room">
               <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="RoomID" ColumnName="RoomID" />
                 <ScalarProperty Name="RoomName" ColumnName="RoomName" />
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
