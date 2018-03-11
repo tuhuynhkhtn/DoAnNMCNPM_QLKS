@@ -13,7 +13,7 @@ namespace MVCQLKS.Controllers
         // GET: Room
         public ActionResult GetListByCategory(int? id, int page = 1)
         {
-            if(!id.HasValue)
+            if (!id.HasValue)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -27,11 +27,11 @@ namespace MVCQLKS.Controllers
                 }
 
                 int nPage = totalP / nPerPage + (totalP % nPerPage > 0 ? 1 : 0);
-                if(page < 1)
+                if (page < 1)
                 {
                     page = 1;
                 }
-                if(page > nPage)
+                if (page > nPage)
                 {
                     page = nPage;
                 }
@@ -50,13 +50,20 @@ namespace MVCQLKS.Controllers
 
         public ActionResult Detail(int? id)
         {
-            if(!id.HasValue)
+            if (!id.HasValue)
             {
                 return RedirectToAction("Index", "Home");
             }
             using (var dc = new QLKSEntities())
             {
                 var room = dc.Rooms.Where(p => p.RoomID == id).FirstOrDefault();
+
+                string loaiphong = (from r in dc.Rooms
+                                    from c in dc.Categories
+                                    where r.CatID == c.CatID
+                                    select c.CatType).FirstOrDefault().ToString();
+                ViewBag.loaiPhong = loaiphong;
+
                 return View(room);
             }
         }
