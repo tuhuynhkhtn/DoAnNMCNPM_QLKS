@@ -1,0 +1,41 @@
+﻿@using MVCQLKS.Models
+@model Room
+
+@*@section stylesheet{
+
+}
+
+@section javascript{
+
+}*@
+
+@section ContentHeader{
+    Chi tiết phòng
+}
+
+<div class="roư">
+    @*<div class="col-sm-12">
+        <h3>Phòng @Model.RoomName</h3>
+    </div>*@
+    <div class="caption">
+        <h3>Phòng @Model.RoomName</h3>
+        @*<h4>Giá: @string.Format("{0:C}", @p.Price)</h4>*@
+        <h4>Giá: @string.Format("{0:N0} đ", @Model.Price)</h4>
+        <p>
+            Tình trạng:
+            @if (@Model.Status > 0)
+            {
+                @:Đã cho thuê
+                    }
+            else
+            {
+                @:Còn trống
+                    }
+        </p>
+        <p>
+            @*<a href="#" class="btn btn-primary" role="button" disabled="disabled">Thuê phòng</a>*@
+            <a href="#" class="btn btn-default" role="button">Trả phòng</a>
+            <a href="#" class="btn btn-primary" role="button">Thuê phòng</a>
+        </p>
+    </div>
+</div>

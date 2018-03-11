@@ -244,6 +244,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Home\_Partial3PhongConTrong.cshtml" />
     <Content Include="Views\Home\_Partial3PhongDaChoThue.cshtml" />
+    <Content Include="Views\Room\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

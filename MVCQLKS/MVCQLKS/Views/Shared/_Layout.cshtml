@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/Content/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
 
     @if (IsSectionDefined("style"))
     {
@@ -48,7 +48,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-building"></i>&ensp;Trang chủ
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->

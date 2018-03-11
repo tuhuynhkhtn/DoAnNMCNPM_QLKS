@@ -9,6 +9,8 @@ namespace MVCQLKS.Controllers
 {
     public class ManageRoomController : Controller
     {
+        static int nPerPage = 6;
+        static int page = 1;
         // GET: ManageRoom
         public ActionResult IndexManageRoom()
         {
@@ -28,5 +30,6 @@ namespace MVCQLKS.Controllers
                 return View(l);
             }
         }
+
     }
 }

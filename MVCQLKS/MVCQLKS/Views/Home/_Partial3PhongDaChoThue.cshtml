@@ -57,7 +57,7 @@ else
                         <p>
                             @*<a href="#" class="btn btn-primary" role="button" disabled="disabled">Thuê phòng</a>*@
                             <a href="#" class="btn btn-default" role="button">Trả phòng</a>
-                            <a href="#" class="btn btn-primary" role="button">Thuê phòng</a>
+                            <a href="@Url.Action("Detail", "Room", new {id = p.RoomID })" class="btn btn-primary" role="button">Thuê phòng</a>
                         </p>
                     </div>
                 </div>

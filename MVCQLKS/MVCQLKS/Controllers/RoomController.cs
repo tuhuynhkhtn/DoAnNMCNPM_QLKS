@@ -47,5 +47,18 @@ namespace MVCQLKS.Controllers
                 return View("ListByCategory", l);
             }
         }
+
+        public ActionResult Detail(int? id)
+        {
+            if(!id.HasValue)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            using (var dc = new QLKSEntities())
+            {
+                var room = dc.Rooms.Where(p => p.RoomID == id).FirstOrDefault();
+                return View(room);
+            }
+        }
     }
 }
