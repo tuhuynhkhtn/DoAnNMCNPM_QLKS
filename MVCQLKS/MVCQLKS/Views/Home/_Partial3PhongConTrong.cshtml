@@ -26,10 +26,11 @@ else
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <div class="caption">
-                        <h3 class="caption-green">@Html.LessString(p.RoomName, 18)</h3>
+                        <h3 class="caption-green">P. @Html.LessString(p.RoomName, 18)</h3>
                         @*<h4>Giá: @string.Format("{0:C}", @p.Price)</h4>*@
-                        <h4 class="caption-red">Giá: @string.Format("{0:N0} đ", @p.Price)</h4>
+                        @*<h4 class="caption-red">Giá: @string.Format("{0:N0} đ", @p.Price)</h4>*@
                         @*<h4 class="caption-red">Giá:  @Html.Price2String(p.Price)</h4>*@
+                        <h4 class="caption-red">Giá: @Html.Price2String((decimal)p.Price)</h4>
                         <p>
                             Tình trạng:
                             @if (@p.Status > 0)
