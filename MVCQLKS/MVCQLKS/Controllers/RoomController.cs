@@ -63,15 +63,14 @@ namespace MVCQLKS.Controllers
                                     where r.CatID == c.CatID
                                     select c.CatType).FirstOrDefault().ToString();
                 ViewBag.loaiPhong = loaiphong;
-
-                var gia = (from r in dc.Rooms
-                                    from c in dc.Categories
-                                    where r.CatID == c.CatID
-                                    select c.Price).FirstOrDefault();
-                ViewBag.giaPhong = gia;
-
                 return View(room);
             }
         }
+
+        public ActionResult AddRoom()
+        {
+            return View();
+        }
+
     }
 }

@@ -246,6 +246,7 @@
     <Content Include="Views\Home\_Partial3PhongConTrong.cshtml" />
     <Content Include="Views\Home\_Partial3PhongDaChoThue.cshtml" />
     <Content Include="Views\Room\Detail.cshtml" />
+    <Content Include="Views\Room\AddRoom.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
