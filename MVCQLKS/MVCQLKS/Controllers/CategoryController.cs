@@ -18,5 +18,10 @@ namespace MVCQLKS.Controllers
                 return PartialView("_PartialList", l);
             }
         }
+
+        public ActionResult AddCat()
+        {
+            return View();
+        }
     }
 }
