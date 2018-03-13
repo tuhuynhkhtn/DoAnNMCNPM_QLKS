@@ -1,24 +1,19 @@
-﻿<!DOCTYPE html>
+﻿@using MVCQLKS.Ultilities
+
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
 
     @if (IsSectionDefined("style"))
     {
         @RenderSection("style")
     }
     <style type="text/css">
-        .caption-green {
-            color: forestgreen;
-        }
-
-        .caption-red {
-            color: red;
-        }
         .input-validation-error {
             border: 2px solid #f00;
             background-color: #fee;
@@ -55,7 +50,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                        <i class="fas fa-building"></i>&ensp;Trang chủ
+                        <i class="fas fa-building"></i>
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,22 +78,27 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
-                        <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
+                        @if (Html.IsLogged() == false)
+                        {
+                            <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
+                            <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Html.GetUserName() <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Profile", "Account")">Thông tin cá nhân</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a id="logoutLink" href="javascript:void">Thoát</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        <form id="frmLogout" method="post" action="@Url.Action("Logout", "Account")"></form>
         <div class="row">
             <div class="col-md-3">
                 <div class="panel panel-primary">
@@ -127,6 +127,11 @@
     <script src="~/Content/js/jquery.min.js"></script>
     <script src="~/Content/js/bootstrap.min.js"></script>
     <script defer src="~/Content/js/fontawesome-all.js"></script>
+    <script type="text/javascript">
+        $('#logoutLink').on('click', function () {
+            $('#frmLogout').submit();
+        });
+    </script>
     @if (IsSectionDefined("script"))
     {
         @RenderSection("script")
