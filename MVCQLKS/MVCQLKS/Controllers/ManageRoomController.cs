@@ -9,10 +9,8 @@ namespace MVCQLKS.Controllers
 {
     public class ManageRoomController : Controller
     {
-        static int nPerPage = 6;
-        static int page = 1;
         // GET: ManageRoom
-        public ActionResult IndexManageRoom()
+        public ActionResult QuanLyRoom()
         {
             using (var dc = new QLKSEntities())
             {
@@ -22,7 +20,7 @@ namespace MVCQLKS.Controllers
         }
 
         // GET: ManageCategory
-        public ActionResult IndexManageCategory()
+        public ActionResult QuanLyCat()
         {
             using (var dc = new QLKSEntities())
             {
