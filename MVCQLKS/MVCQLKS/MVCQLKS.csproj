@@ -218,6 +218,7 @@
     <Compile Include="Ultilities\ActionFilters.cs" />
     <Compile Include="Ultilities\AddHelpers.cs" />
     <Compile Include="Ultilities\Ulti.cs" />
+    <Compile Include="Controllers\EmployController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -235,8 +236,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\_PartialList.cshtml" />
     <Content Include="Views\Room\ListByCategory.cshtml" />
-    <Content Include="Views\ManageRoom\QuanLyRoom.cshtml" />
-    <Content Include="Views\ManageRoom\QuanLyCat.cshtml" />
+    <Content Include="Views\Employ\QuanLyRoomChoNV.cshtml" />
+    <Content Include="Views\Employ\QuanLyCatChoNV.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Content\css\bootstrap-theme.css.map" />
     <Content Include="Content\css\bootstrap-theme.min.css.map" />
