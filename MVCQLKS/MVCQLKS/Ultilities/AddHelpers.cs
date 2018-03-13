@@ -9,16 +9,6 @@ namespace MVCQLKS.Ultilities
 {
     public static class AddHelpers
     {
-        public static string GetUserName(this HtmlHelper html)
-        {
-            var ui = HttpContext.Current.Session["Logged"] as UserInfo;
-            if (ui != null)
-            {
-                return ui.UserName;
-            }
-            return "";
-        }
-
         public static MvcHtmlString LessString(this HtmlHelper html, string str, int maxLength)
         {
             if (str.Length < maxLength)
@@ -76,5 +66,14 @@ namespace MVCQLKS.Ultilities
             return false;
         }
 
+        public static string GetUserName(this HtmlHelper html)
+        {
+            var ui = HttpContext.Current.Session["Logged"] as UserInfo;
+            if (ui != null)
+            {
+                return ui.UserName;
+            }
+            return "";
+        }
     }
 }

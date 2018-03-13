@@ -9,7 +9,13 @@ namespace MVCQLKS.Controllers
 {
     public class ManageRoomController : Controller
     {
-        // GET: ManageRoom
+        // GET: ManageRoom/IndexManageRoom
+        public ActionResult IndexManageRoom()
+        {
+            return View();
+        }
+
+        // GET: ManageRoom/QuanLyRoom
         public ActionResult QuanLyRoom()
         {
             using (var dc = new QLKSEntities())
@@ -19,7 +25,7 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        // GET: ManageCategory
+        // GET: ManageCategory/QuanLyCat
         public ActionResult QuanLyCat()
         {
             using (var dc = new QLKSEntities())
