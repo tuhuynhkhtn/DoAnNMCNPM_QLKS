@@ -15,15 +15,15 @@ namespace MVCQLKS.Controllers
             return View();
         }
 
-        //// GET: ManageRoom/QuanLyRoom
-        //public ActionResult QuanLyRoom()
-        //{
-        //    using (var dc = new QLKSEntities())
-        //    {
-        //        var l = dc.Rooms.ToList();
-        //        return View(l);
-        //    }
-        //}
+        // GET: ManageRoom/QuanLyRoom
+        public ActionResult QuanLyRoom()
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var l = dc.Rooms.ToList();
+                return View(l);
+            }
+        }
 
         //// GET: ManageCategory/QuanLyCat
         //public ActionResult QuanLyCat()
