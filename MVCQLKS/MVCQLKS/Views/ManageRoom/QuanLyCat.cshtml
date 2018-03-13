@@ -2,10 +2,11 @@
 @model IList<Category>
 
 @{
-    ViewBag.Title = "QuanLyCatChoNV";
+    ViewBag.Title = "QuanLyCat";
+    Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
 }
 
-@section ContentHeader{
+@section ContentHeaderManageRoom{
     Danh mục phòng
 }
 
@@ -43,8 +44,8 @@ else
                             <td>@p.Note</td>
                             <td>
                                 <a name="aDelete" class="btn btn-danger btn-xs" href="javascript:void;" title="Xóa" data-id="@p.CatID">
-                                    @*<i class="fa fa-close"></i>*@
-                                    <i class="fas fa-times"></i>
+                                    <i class="fa fa-close"></i>
+                                    @*<i class="fas fa-times"></i>*@
                                 </a>
                                 <a name="aUpdate" class="btn btn-success btn-xs" href="javascript:void;" title="Cập nhật" data-id="@p.CatID">
                                     <i class="fa fa-check"></i>

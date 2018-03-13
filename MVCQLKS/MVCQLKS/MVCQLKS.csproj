@@ -265,6 +265,7 @@
     <Content Include="Views\ManageRoom\QuanLyRoom.cshtml" />
     <Content Include="Views\Shared\_LayoutManageRoom.cshtml" />
     <Content Include="Views\_ViewStartManageRoom.cshtml" />
+    <Content Include="Views\ManageRoom\QuanLyCat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -25,15 +25,15 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        //// GET: ManageCategory/QuanLyCat
-        //public ActionResult QuanLyCat()
-        //{
-        //    using (var dc = new QLKSEntities())
-        //    {
-        //        var l = dc.Categories.ToList();
-        //        return View(l);
-        //    }
-        //}
+        // GET: ManageCategory/QuanLyCat
+        public ActionResult QuanLyCat()
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var l = dc.Categories.ToList();
+                return View(l);
+            }
+        }
 
     }
 }
