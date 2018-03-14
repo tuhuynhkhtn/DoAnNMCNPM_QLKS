@@ -35,5 +35,18 @@ namespace MVCQLKS.Views
             }
         }
 
+        // GET: ManageCategory/AddCatChoNV
+        public ActionResult AddCatChoNV()
+        {
+            return View();
+        }
+
+        // GET: ManageCategory/AddRoomChoNV
+        public ActionResult AddRoomChoNV()
+        {
+            return View();
+        }
+
+
     }
 }

@@ -35,5 +35,11 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        // GET: ManageCategory/AddCat
+        public ActionResult AddCat()
+        {
+            return View();
+        }
+
     }
 }

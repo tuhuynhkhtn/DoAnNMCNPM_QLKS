@@ -250,8 +250,8 @@
     <Content Include="Views\Home\_Partial3PhongConTrong.cshtml" />
     <Content Include="Views\Home\_Partial3PhongDaChoThue.cshtml" />
     <Content Include="Views\Room\Detail.cshtml" />
-    <Content Include="Views\Room\AddRoom.cshtml" />
-    <Content Include="Views\Category\AddCat.cshtml" />
+    <Content Include="Views\Employ\AddRoomChoNV.cshtml" />
+    <Content Include="Views\Employ\AddCatChoNV.cshtml" />
     <EntityDeploy Include="Models\QLKSModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QLKSModel.Designer.cs</LastGenOutput>
@@ -266,6 +266,7 @@
     <Content Include="Views\Shared\_LayoutManageRoom.cshtml" />
     <Content Include="Views\_ViewStartManageRoom.cshtml" />
     <Content Include="Views\ManageRoom\QuanLyCat.cshtml" />
+    <Content Include="Views\ManageRoom\AddCat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

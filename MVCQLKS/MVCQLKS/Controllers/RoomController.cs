@@ -67,10 +67,6 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        public ActionResult AddRoom()
-        {
-            return View();
-        }
 
     }
 }

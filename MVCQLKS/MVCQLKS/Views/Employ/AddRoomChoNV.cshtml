@@ -1,18 +1,18 @@
-﻿@model MVCQLKS.Models.Category
+﻿@model MVCQLKS.Models.Room
 
 @{
-    ViewBag.Title = "AddCat";
+    ViewBag.Title = "AddRoomChoNV";
 }
 
 @section ContentHeader{
-    Thêm mới dannh mục phòng
+    Thêm mới phòng
 }
 
 <div class="row">
     <div class="control-group">
-        @Html.LabelFor(m => m.CatName, "Tên loại phòng:", new { @class = "col-md-3 control-label" })
+        @Html.LabelFor(m => m.RoomName, "Tên phòng:", new { @class = "col-md-3 control-label" })
         <div class="col-sm-8 form-control-static">
-            @Html.TextBoxFor(m => m.CatName, new { @class = "form-control", placeholder = "Tên loại phòng" })
+            @Html.TextBoxFor(m => m.RoomName, new { @class = "form-control", placeholder = "Tên phòng" })
         </div>
     </div>
     <div class="control-group">
@@ -28,9 +28,9 @@
         </div>
     </div>
     <div class="control-group">
-        @Html.LabelFor(m => m.Note, "Ghi chú:", new { @class = "col-md-3 control-label" })
+        @Html.LabelFor(m => m.Status, "Tình trạng:", new { @class = "col-md-3 control-label" })
         <div class="col-sm-8 form-control-static">
-            @Html.TextBoxFor(m => m.Note, new { @class = "form-control", placeholder = "Ghi chú" })
+            @Html.TextBoxFor(m => m.Status, new { @class = "form-control", placeholder = "Tình trạng" })
         </div>
     </div>
     <div class="form-group">

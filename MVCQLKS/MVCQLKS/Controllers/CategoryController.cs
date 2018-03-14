@@ -9,7 +9,7 @@ namespace MVCQLKS.Controllers
 {
     public class CategoryController : Controller
     {
-        // GET: Category
+        // GET: Category/GetList
         public ActionResult GetList()
         {
             using (var dc = new QLKSEntities())
@@ -19,9 +19,5 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        public ActionResult AddCat()
-        {
-            return View();
-        }
     }
 }
