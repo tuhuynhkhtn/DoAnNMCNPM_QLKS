@@ -6,6 +6,16 @@
     Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
 }
 
+@section script{
+    <script type="text/javascript">
+        $('a[name ="aDelete"]').on('click', function () {
+            var pId = ($(this).data('id'));
+            $('#pId').val(pId);
+            $('#frmDelete').submit();
+        });
+    </script>
+}
+
 @section ContentHeaderManageRoom{
     Danh mục phòng
 }
@@ -16,6 +26,9 @@
 }
 else
 {
+    <form id="frmDelete" method="post" action="@Url.Action("DeleteCat", "ManageRoom")">
+        <input id="pId" type="hidden" name="id" />
+    </form>
     <div class="row">
         <div class="col-md-12">
             <div class="panel-headding text-center">

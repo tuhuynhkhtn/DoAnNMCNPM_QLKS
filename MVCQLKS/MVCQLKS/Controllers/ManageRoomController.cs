@@ -54,11 +54,25 @@ namespace MVCQLKS.Controllers
                 var rD = dc.Rooms.Where(c => c.RoomID == id).FirstOrDefault();
                 if (rD != null)
                 {
-                    //cD.BiXoa = 1;
                     dc.Rooms.Remove(rD);
                     dc.SaveChanges();
                 }
                 return RedirectToAction("QuanLyRoom");
+            }
+        }
+
+        // GET: ManageRoom/DeleteCat
+        public ActionResult DeleteCat(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cD = dc.Categories.Where(c => c.CatID == id).FirstOrDefault();
+                if (cD != null)
+                {
+                    dc.Categories.Remove(cD);
+                    dc.SaveChanges();
+                }
+                return RedirectToAction("QuanLyCat");
             }
         }
 
