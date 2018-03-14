@@ -40,5 +40,11 @@ namespace MVCQLKS.Controllers
             return View();
         }
 
+        // GET: ManageRoom/AddCat
+        public ActionResult AddRoom()
+        {
+            return View();
+        }
+
     }
 }
