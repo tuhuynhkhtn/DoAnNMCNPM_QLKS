@@ -199,6 +199,25 @@ namespace MVCQLKS.Controllers
             return View("UpdateRoom");
         }
 
+        // GET: ManageRoom/UpdateCat
+        public ActionResult UpdateCat(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cU = dc.Categories.Where(c => c.CatID == id).FirstOrDefault();
+                var r = new CatInfo
+                {
+                    CatIDInfo = cU.CatID,
+                    CatNameInfo = cU.CatName,
+                    CatTypeInfo = cU.CatType,
+                    PriceInfo = cU.Price,
+                    NoteInfo = cU.Note
+                };
+                return View(r);
+            }
+        }
+
+
 
     }
 }

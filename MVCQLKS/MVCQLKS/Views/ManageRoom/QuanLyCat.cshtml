@@ -13,6 +13,12 @@
             $('#pId').val(pId);
             $('#frmDelete').submit();
         });
+        $('a[name ="aUpdate"]').on('click', function () {
+            var pId = ($(this).data('id'));
+            //alert(pId);
+            $('#pIdUpdate').val(pId);
+            $('#frmUpdate').submit();
+        });
     </script>
 }
 
@@ -28,6 +34,9 @@ else
 {
     <form id="frmDelete" method="post" action="@Url.Action("DeleteCat", "ManageRoom")">
         <input id="pId" type="hidden" name="id" />
+    </form>
+    <form id="frmUpdate" method="post" action="@Url.Action("UpdateCat", "ManageRoom")">
+        <input id="pIdUpdate" type="hidden" name="id" />
     </form>
     <div class="row">
         <div class="col-md-12">

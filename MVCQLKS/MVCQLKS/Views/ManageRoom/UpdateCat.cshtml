@@ -1,14 +1,14 @@
 ﻿@using MVCQLKS.Models
-@*@model Room*@
-@model RoomInfo
+@*@model Category*@
+@model CatInfo
 
 @{
-    ViewBag.Title = "UpdateRoom";
+    ViewBag.Title = "AddCat";
     Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
 }
 
 @section ContentHeaderManageRoom{
-    Cập nhật thông tin phòng
+    Cập nhật thông tin dannh mục phòng
 }
 
 <div class="row">
@@ -22,25 +22,25 @@
             //<p class="error">@ViewBag.ErrorMsg</p>
             //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
         }
-        @using (Html.BeginForm("UpdateInfoRoom", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmUpdate", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddCat", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
-                @*@Html.LabelFor(m => m.RoomIDInfo, "ID phòng:", new { @class = "col-md-3 control-label" })
+                @Html.LabelFor(m => m.CatIDInfo, "ID danh mục phòng:", new { @class = "col-md-3 control-label" })
                     <div class="col-sm-8 form-control-static">
-                        @Html.DisplayFor(m => m.RoomIDInfo, new { @class = "form-control", placeholder = "id phòng" })
-                    </div>*@
-                @Html.HiddenFor(m => m.RoomIDInfo)
+                        @Html.DisplayFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "id danh mục phòng" })
+                    </div>
+                @Html.HiddenFor(m => m.CatIDInfo)
             </div>
             <div class="control-group">
-                @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-md-3 control-label" })
+                @Html.LabelFor(m => m.CatNameInfo, "Tên loại phòng:", new { @class = "col-md-3 control-label" })
                 <div class="col-sm-8 form-control-static">
-                    @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
+                    @Html.TextBoxFor(m => m.CatNameInfo, new { @class = "form-control", placeholder = "Tên loại phòng" })
                 </div>
             </div>
             <div class="control-group">
-                @Html.LabelFor(m => m.CatIDInfo, "Loại phòng:", new { @class = "col-md-3 control-label" })
+                @Html.LabelFor(m => m.CatTypeInfo, "Loại phòng:", new { @class = "col-md-3 control-label" })
                 <div class="col-sm-8 form-control-static">
-                    @Html.TextBoxFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "Loại phòng" })
+                    @Html.TextBoxFor(m => m.CatTypeInfo, new { @class = "form-control", placeholder = "Loại phòng" })
                 </div>
             </div>
             <div class="control-group">
@@ -50,9 +50,9 @@
                 </div>
             </div>
             <div class="control-group">
-                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-md-3 control-label" })
+                @Html.LabelFor(m => m.NoteInfo, "Ghi chú:", new { @class = "col-md-3 control-label" })
                 <div class="col-sm-8 form-control-static">
-                    @Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })
+                    @Html.TextBoxFor(m => m.NoteInfo, new { @class = "form-control", placeholder = "Ghi chú" })
                 </div>
             </div>
             <div class="form-group">
