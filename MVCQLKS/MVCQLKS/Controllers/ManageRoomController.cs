@@ -25,7 +25,7 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        // GET: ManageCategory/QuanLyCat
+        // GET: ManageRoom/QuanLyCat
         public ActionResult QuanLyCat()
         {
             using (var dc = new QLKSEntities())
@@ -34,8 +34,7 @@ namespace MVCQLKS.Controllers
                 return View(l);
             }
         }
-
-        // GET: ManageCategory/AddCat
+        // GET: ManageRoom/AddCat
         public ActionResult AddCat()
         {
             return View();

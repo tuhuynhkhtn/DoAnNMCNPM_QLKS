@@ -41,23 +41,14 @@ else
                             <td>@p.CatID</td>
                             <td>@string.Format("{0:N0} đ", @p.Price)</td>
                             <td>@p.Note</td>
-                            <td>
-                                <a name="aDelete" class="btn btn-danger btn-xs" href="javascript:void;" title="Xóa" data-id="@p.CatID">
-                                    @*<i class="fa fa-close"></i>*@
-                                    <i class="fas fa-times"></i>
-                                </a>
-                                <a name="aUpdate" class="btn btn-success btn-xs" href="javascript:void;" title="Cập nhật" data-id="@p.CatID">
-                                    <i class="fa fa-check"></i>
-                                </a>
-                            </td>
                         </tr>
                     }
                 </tbody>
             </table>
-            <a class="btn btn-primary" href="@Url.Action("AddCatChoNV","Employ")" title="Thêm mới loại phòng">
+            @*<a class="btn btn-primary" href="@Url.Action("AddCatChoNV","Employ")" title="Thêm mới loại phòng">
                 <i class="fa fa-plus"></i>
                 &nbsp;Thêm mới danh mục phòng
-            </a>
+            </a>*@
         </div>
     </div>
                         }
