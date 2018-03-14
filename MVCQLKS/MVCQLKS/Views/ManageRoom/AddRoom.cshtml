@@ -12,11 +12,27 @@
     Thêm mới phòng
 }
 
+@section style{
+    <link href="~/Content/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <style type="text/css">
+
+    </style>
+}
+
 @section script{
+    <script src="~/Content/js/jquery.bootstrap-touchspin.min.js"></script>
     <script type="text/javascript">
         $('.selectpicker').selectpicker({
             //style: 'btn-info',
             //size: 4
+        });
+        $("input[name='PriceInfo']").TouchSpin({
+            initval: 500,
+            min: 500,
+            max: 1000000000,
+            stepinterval: 50,
+            maxboostedstep: 10000000,
+            prefix: 'VNĐ'
         });
     </script>
 }
@@ -47,16 +63,24 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                    @Html.TextBoxFor(m => m.PriceInfo, new { @class = "form-control", placeholder = "Đơn giá" })
+                    <input name="PriceInfo" type="text" class="form-control" placeholder="Đơn giá">
                 </div>
+
                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
                     @*@Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })*@
 
-                        <select name="tinhtrang" class="form-control selectpicker">
-                            <option>Đã cho thuê</option>
-                            <option>Còn trống</option>
-                        </select>
+                    @Html.DropDownListFor(m => m.StatusInfo, new List<SelectListItem>() {
+                    new SelectListItem() {
+                        Text = "Đã cho thuê",
+                        Value = "1"
+                    },
+                    new SelectListItem() {
+                        Text = "Còn trống",
+                        Value = "0"
+                    },
+                }, new { @class = "form-control selectpicker" })
+
                 </div>
             </div>
           

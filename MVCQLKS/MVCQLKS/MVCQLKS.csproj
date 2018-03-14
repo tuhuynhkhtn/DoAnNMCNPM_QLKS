@@ -140,6 +140,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\jquery.bootstrap-touchspin.min.css" />
     <Content Include="Content\fonts\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -149,6 +150,7 @@
     <Content Include="Content\js\fontawesome-all.js" />
     <Content Include="Content\js\jquery-3.1.1.js" />
     <Content Include="Content\js\jquery-3.1.1.min.js" />
+    <Content Include="Content\js\jquery.bootstrap-touchspin.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Content\js\jquery.validate.min.js" />
