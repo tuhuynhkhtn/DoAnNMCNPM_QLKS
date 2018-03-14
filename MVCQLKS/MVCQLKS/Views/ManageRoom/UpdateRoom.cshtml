@@ -1,0 +1,68 @@
+﻿@using MVCQLKS.Models
+@*@model Room*@
+@model RoomInfo
+
+@{
+    ViewBag.Title = "UpdateRoom";
+    Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
+}
+
+@section ContentHeaderManageRoom{
+    Cập nhật thông tin phòng
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.ErrorMsg != null)
+        {
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                @ViewBag.ErrorMsg
+            </div>
+            //<p class="error">@ViewBag.ErrorMsg</p>
+            //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
+        }
+        @using (Html.BeginForm("UpdateInfoRoom", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmUpdate", enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                @*@Html.LabelFor(m => m.RoomIDInfo, "ID phòng:", new { @class = "col-md-3 control-label" })
+                    <div class="col-sm-8 form-control-static">
+                        @Html.DisplayFor(m => m.RoomIDInfo, new { @class = "form-control", placeholder = "id phòng" })
+                    </div>*@
+                @Html.HiddenFor(m => m.RoomIDInfo)
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-md-3 control-label" })
+                <div class="col-sm-8 form-control-static">
+                    @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.CatIDInfo, "Loại phòng:", new { @class = "col-md-3 control-label" })
+                <div class="col-sm-8 form-control-static">
+                    @Html.TextBoxFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "Loại phòng" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-md-3 control-label" })
+                <div class="col-sm-8 form-control-static">
+                    @Html.TextBoxFor(m => m.PriceInfo, new { @class = "form-control", placeholder = "Đơn giá" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-md-3 control-label" })
+                <div class="col-sm-8 form-control-static">
+                    @Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-plus"></i>
+                        &nbsp;Cập nhật
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

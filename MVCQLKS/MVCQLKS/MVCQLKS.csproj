@@ -270,6 +270,7 @@
     <Content Include="Views\ManageRoom\QuanLyCat.cshtml" />
     <Content Include="Views\ManageRoom\AddCat.cshtml" />
     <Content Include="Views\ManageRoom\AddRoom.cshtml" />
+    <Content Include="Views\ManageRoom\UpdateRoom.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCQLKS.Models;
+using System.Data.Entity;
 
 namespace MVCQLKS.Controllers
 {
@@ -111,15 +112,15 @@ namespace MVCQLKS.Controllers
         // GET: ManageRoom/AddCat
         public ActionResult AddCat()
         {
-            var c = new CatInfo
-            {
-                CatNameInfo = "cat",
-                CatTypeInfo = "1",
-                PriceInfo = 200000,
-                NoteInfo = "cat"
-            };
-            return View(c);
-            //return View();
+            //var c = new CatInfo
+            //{
+            //    CatNameInfo = "cat",
+            //    CatTypeInfo = "1",
+            //    PriceInfo = 200000,
+            //    NoteInfo = "cat"
+            //};
+            //return View(c);
+            return View();
         }
 
         // POST: ManageRoom/AddCat
@@ -151,6 +152,52 @@ namespace MVCQLKS.Controllers
             return View("AddCat");
         }
 
+        // GET: ManageRoom/UpdateRoom
+        public ActionResult UpdateRoom(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var rU = dc.Rooms.Where(c => c.RoomID == id).FirstOrDefault();
+                var r = new RoomInfo
+                {
+                    RoomIDInfo = rU.RoomID,
+                    RoomNameInfo = rU.RoomName,
+                    CatIDInfo = rU.CatID,
+                    PriceInfo = rU.Price,
+                    StatusInfo = rU.Status
+                };
+                return View(r);
+            }
+        }
+
+        // POST: ManageProduct/UpdateInfoRoom
+        [HttpPost]
+        public ActionResult UpdateInfoRoom(RoomInfo room)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                // Kiểm tra ID phòng nhập vào có tồn tại không
+                var nsxU = dc.Rooms.Where(c => c.RoomID == room.RoomIDInfo).FirstOrDefault();
+                if (nsxU != null)
+                {
+                    nsxU.RoomName = room.RoomNameInfo;
+
+                    // Kiểm tra tên phòng nhập vào có bị trùng không
+                    var a = dc.Rooms.Where(c => c.RoomName == room.RoomNameInfo).FirstOrDefault();
+                    if (a != null)
+                    {
+                        ViewBag.ErrorMsg = "Tên phòng đã tồn tại";
+                    }
+                    else
+                    {
+                        dc.Entry(nsxU).State = EntityState.Modified;
+                        dc.SaveChanges();
+                        return RedirectToAction("QuanLyRoom");
+                    }
+                }
+            }
+            return View("UpdateRoom");
+        }
 
 
     }
