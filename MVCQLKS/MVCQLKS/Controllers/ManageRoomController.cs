@@ -34,17 +34,6 @@ namespace MVCQLKS.Controllers
                 return View(l);
             }
         }
-        // GET: ManageRoom/AddCat
-        public ActionResult AddCat()
-        {
-            return View();
-        }
-
-        // GET: ManageRoom/AddRoom
-        public ActionResult AddRoom()
-        {
-            return View();
-        }
 
         // GET: ManageRoom/DeleteRoom
         public ActionResult DeleteRoom(int id)
@@ -76,5 +65,55 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        // GET: ManageRoom/AddRoom
+        public ActionResult AddRoom()
+        {
+            //var r = new RoomInfo
+            //{
+            //    RoomNameInfo = "room",
+            //    CatIDInfo = 3,
+            //    PriceInfo = 200000,
+            //    StatusInfo = 0 //còn trống
+
+            //};
+            //return View(r);
+            return View();
+        }
+
+        // POST: ManageRoom/AddRoom
+        [HttpPost]
+        public ActionResult AddRoom(RoomInfo room)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var roomTonTai = dc.Rooms.Where(m => m.RoomName == room.RoomNameInfo).FirstOrDefault();
+                if (roomTonTai != null)
+                {
+                    ViewBag.ErrorMsg = "Tên phòng đã tồn tại";
+                }
+                else
+                {
+                    var r = new Room
+                    {
+                        RoomName = room.RoomNameInfo,
+                        CatID = room.CatIDInfo,
+                        Price = room.PriceInfo,
+                        Status = room.StatusInfo
+                    };
+
+                    dc.Rooms.Add(r);
+                    dc.SaveChanges();
+                    return RedirectToAction("QuanLyRoom");
+                }
+            }
+            //return RedirectToAction("QuanLyCat");
+            return View("AddRoom");
+        }
+
+        // GET: ManageRoom/AddCat
+        public ActionResult AddCat()
+        {
+            return View();
+        }
     }
 }
