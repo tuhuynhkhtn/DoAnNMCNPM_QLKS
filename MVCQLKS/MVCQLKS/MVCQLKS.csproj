@@ -182,6 +182,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CatInfo.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>

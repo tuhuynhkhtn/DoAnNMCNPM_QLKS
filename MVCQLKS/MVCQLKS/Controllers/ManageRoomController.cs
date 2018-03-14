@@ -74,7 +74,6 @@ namespace MVCQLKS.Controllers
             //    CatIDInfo = 3,
             //    PriceInfo = 200000,
             //    StatusInfo = 0 //còn trống
-
             //};
             //return View(r);
             return View();
@@ -106,14 +105,53 @@ namespace MVCQLKS.Controllers
                     return RedirectToAction("QuanLyRoom");
                 }
             }
-            //return RedirectToAction("QuanLyCat");
             return View("AddRoom");
         }
 
         // GET: ManageRoom/AddCat
         public ActionResult AddCat()
         {
-            return View();
+            var c = new CatInfo
+            {
+                CatNameInfo = "cat",
+                CatTypeInfo = "1",
+                PriceInfo = 200000,
+                NoteInfo = "cat"
+            };
+            return View(c);
+            //return View();
         }
+
+        // POST: ManageRoom/AddCat
+        [HttpPost]
+        public ActionResult AddCat(CatInfo cat)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var catTonTai = dc.Categories.Where(m => m.CatName == cat.CatNameInfo).FirstOrDefault();
+                if (catTonTai != null)
+                {
+                    ViewBag.ErrorMsg = "Tên phòng đã tồn tại";
+                }
+                else
+                {
+                    var c = new Category
+                    {
+                        CatName = cat.CatNameInfo,
+                        CatType = cat.CatTypeInfo,
+                        Price = cat.PriceInfo,
+                        Note = cat.NoteInfo
+                    };
+
+                    dc.Categories.Add(c);
+                    dc.SaveChanges();
+                    return RedirectToAction("QuanLyCat");
+                }
+            }
+            return View("AddCat");
+        }
+
+
+
     }
 }
