@@ -25,10 +25,10 @@
         @using (Html.BeginForm("AddCat", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
-                @Html.LabelFor(m => m.CatIDInfo, "ID danh mục phòng:", new { @class = "col-md-3 control-label" })
+                @*@Html.LabelFor(m => m.CatIDInfo, "ID danh mục phòng:", new { @class = "col-md-3 control-label" })
                     <div class="col-sm-8 form-control-static">
                         @Html.DisplayFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "id danh mục phòng" })
-                    </div>
+                    </div>*@
                 @Html.HiddenFor(m => m.CatIDInfo)
             </div>
             <div class="control-group">
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-10">
+                <div class="col-sm-offset-6 col-sm-12">
                     <button type="submit" class="btn btn-primary">
                         <i class="fa fa-check"></i>
                         &nbsp;Cập nhật

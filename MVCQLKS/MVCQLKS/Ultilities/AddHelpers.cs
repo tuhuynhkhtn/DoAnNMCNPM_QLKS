@@ -75,5 +75,38 @@ namespace MVCQLKS.Ultilities
             }
             return "";
         }
+
+        public static IList<SelectListItem> GetSLICat(this HtmlHelper html)
+        {
+            var l = new List<SelectListItem>();
+            using (var dc = new QLKSEntities())
+            {
+                foreach (var c in dc.Categories.ToList())
+                {
+                    l.Add(new SelectListItem
+                    {
+                        Value = c.CatID.ToString(),
+                        Text = c.CatName
+                    });
+                }
+            }
+            return l;
+        }
+
+        public static string GetCatName(this HtmlHelper html, int id)
+        {
+            var name = "";
+            using (var dc = new QLKSEntities())
+            {
+                var cat = dc.Categories.Where(c => c.CatID == id).FirstOrDefault();
+                if(cat != null)
+                {
+                    name = cat.CatName;
+                    return name;
+                }
+            }
+            return name;
+        }
+
     }
 }

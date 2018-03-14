@@ -72,7 +72,7 @@ else
                         <tr>
                             <td>@stt</td>
                             <td>@p.RoomName</td>
-                            <td>@p.CatID</td>
+                            <td>@Html.GetCatName(@p.CatID)</td>
                             <td>@string.Format("{0:N0} đ", @p.Price)</td>
                             <td>
                                 @if (@p.Status > 0)
