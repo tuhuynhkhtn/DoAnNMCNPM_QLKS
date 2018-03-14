@@ -40,10 +40,26 @@ namespace MVCQLKS.Controllers
             return View();
         }
 
-        // GET: ManageRoom/AddCat
+        // GET: ManageRoom/AddRoom
         public ActionResult AddRoom()
         {
             return View();
+        }
+
+        // GET: ManageRoom/DeleteRoom
+        public ActionResult DeleteRoom(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var rD = dc.Rooms.Where(c => c.RoomID == id).FirstOrDefault();
+                if (rD != null)
+                {
+                    //cD.BiXoa = 1;
+                    dc.Rooms.Remove(rD);
+                    dc.SaveChanges();
+                }
+                return RedirectToAction("QuanLyRoom");
+            }
         }
 
     }
