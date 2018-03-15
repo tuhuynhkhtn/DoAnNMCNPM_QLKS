@@ -108,5 +108,20 @@ namespace MVCQLKS.Ultilities
             return name;
         }
 
+        public static decimal GetCatPrice(this HtmlHelper html, int catId)
+        {
+            decimal gia = 0;
+            using (var dc = new QLKSEntities())
+            {
+                var cat = dc.Categories.Where(c => c.CatID == catId).FirstOrDefault();
+                if (cat != null)
+                {
+                    gia = cat.Price;
+                    return gia;
+                }
+            }
+            return gia;
+        }
+
     }
 }

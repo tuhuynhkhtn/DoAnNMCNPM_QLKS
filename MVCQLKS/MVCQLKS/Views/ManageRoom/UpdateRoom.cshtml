@@ -67,7 +67,7 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                    <input name="PriceInfo" type="text" class="form-control" placeholder="Đơn giá">
+                    @Html.TextBoxFor(m => m.PriceInfo, new { @class = "form-control", type = "text", disabled = "disabled" } )
                 </div>
 
                 @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-sm-2 control-label" })
