@@ -13,14 +13,17 @@
 }
 
 @section style{
+    <link href="~/Content/css/bootstrap-select.min.css" rel="stylesheet" />
     <link href="~/Content/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="~/Content/css/summernote.css" rel="stylesheet" />
     <style type="text/css">
-
     </style>
 }
 
 @section script{
+    <script src="~/Content/js/bootstrap-select.min.js"></script>
     <script src="~/Content/js/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/Content/js/summernote.min.js"></script>
     <script type="text/javascript">
         $('.selectpicker').selectpicker({
             //style: 'btn-info',
@@ -35,6 +38,7 @@
             prefix: 'VNĐ'
         });
     </script>
+
 }
 
 <div class="row">
@@ -51,9 +55,9 @@
         @using (Html.BeginForm("AddRoom", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
-               @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                   @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
+                    @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
                 </div>
                 @Html.LabelFor(m => m.CatIDInfo, "Loại phòng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
@@ -66,7 +70,7 @@
                     <input name="PriceInfo" type="text" class="form-control" placeholder="Đơn giá">
                 </div>
 
-               @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
                     @*@Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })*@
 
@@ -83,7 +87,7 @@
 
                 </div>
             </div>
-          
+
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">

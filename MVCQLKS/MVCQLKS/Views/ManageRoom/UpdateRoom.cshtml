@@ -1,4 +1,5 @@
 ﻿@using MVCQLKS.Models
+@using MVCQLKS.Ultilities
 @*@model Room*@
 @model RoomInfo
 
@@ -9,6 +10,35 @@
 
 @section ContentHeaderManageRoom{
     Cập nhật thông tin phòng
+}
+
+@section style{
+    <link href="~/Content/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="~/Content/css/summernote.css" rel="stylesheet" />
+    <style type="text/css">
+    </style>
+}
+
+@section script{
+    <script src="~/Content/js/bootstrap-select.min.js"></script>
+    <script src="~/Content/js/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/Content/js/summernote.min.js"></script>
+    <script type="text/javascript">
+        $('.selectpicker').selectpicker({
+            //style: 'btn-info',
+            //size: 4
+        });
+        $("input[name='PriceInfo']").TouchSpin({
+            initval: 500,
+            min: 500,
+            max: 1000000000,
+            stepinterval: 50,
+            maxboostedstep: 10000000,
+            prefix: 'VNĐ'
+        });
+    </script>
+
 }
 
 <div class="row">
@@ -25,34 +55,36 @@
         @using (Html.BeginForm("UpdateInfoRoom", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmUpdate", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
-                @*@Html.LabelFor(m => m.RoomIDInfo, "ID phòng:", new { @class = "col-md-3 control-label" })
-                    <div class="col-sm-8 form-control-static">
-                        @Html.DisplayFor(m => m.RoomIDInfo, new { @class = "form-control", placeholder = "id phòng" })
-                    </div>*@
-                @Html.HiddenFor(m => m.RoomIDInfo)
-            </div>
-            <div class="control-group">
-                @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-md-3 control-label" })
-                <div class="col-sm-8 form-control-static">
+                @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-4">
                     @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
                 </div>
-            </div>
-            <div class="control-group">
-                @Html.LabelFor(m => m.CatIDInfo, "Loại phòng:", new { @class = "col-md-3 control-label" })
-                <div class="col-sm-8 form-control-static">
-                    @Html.TextBoxFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "Loại phòng" })
+                @Html.LabelFor(m => m.CatIDInfo, "Loại phòng:", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(m => m.CatIDInfo, Html.GetSLICat(), new { @class = "form-control selectpicker", placeholder = "danh mục" })
                 </div>
             </div>
-            <div class="control-group">
-                @Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-md-3 control-label" })
-                <div class="col-sm-8 form-control-static">
-                    @Html.TextBoxFor(m => m.PriceInfo, new { @class = "form-control", placeholder = "Đơn giá" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-4">
+                    <input name="PriceInfo" type="text" class="form-control" placeholder="Đơn giá">
                 </div>
-            </div>
-            <div class="control-group">
-                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-md-3 control-label" })
-                <div class="col-sm-8 form-control-static">
-                    @Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })
+
+                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-4">
+                    @*@Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })*@
+
+                    @Html.DropDownListFor(m => m.StatusInfo, new List<SelectListItem>() {
+                    new SelectListItem() {
+                        Text = "Đã cho thuê",
+                        Value = "1"
+                    },
+                    new SelectListItem() {
+                        Text = "Còn trống",
+                        Value = "0"
+                    },
+                }, new { @class = "form-control selectpicker" })
+
                 </div>
             </div>
             <div class="form-group">
