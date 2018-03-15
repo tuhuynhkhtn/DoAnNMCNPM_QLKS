@@ -16,13 +16,18 @@
     <link href="~/Content/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
     <link href="~/Content/css/summernote.css" rel="stylesheet" />
     <style type="text/css">
+        .error {
+            color: red;
+        }
     </style>
+
 }
 
 @section script{
     <script src="~/Content/js/bootstrap-select.min.js"></script>
     <script src="~/Content/js/jquery.bootstrap-touchspin.min.js"></script>
     <script src="~/Content/js/summernote.min.js"></script>
+    <script src="~/Content/js/jquery.validate.min.js"></script>
     <script type="text/javascript">
         $('.selectpicker').selectpicker({
             //style: 'btn-info',
@@ -35,6 +40,16 @@
             stepinterval: 50,
             maxboostedstep: 10000000,
             prefix: 'VNĐ'
+        });
+        $("#frmAdd").validate({
+            rules: {
+                CatNameInfo: "required",
+                CatTypeInfo: "required",
+            },
+            messages: {
+                CatNameInfo: "Cần nhập tên loại phòng",
+                CatTypeInfo: "Cần nhập loại phòng",
+            }
         });
     </script>
 
