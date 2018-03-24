@@ -8,6 +8,7 @@ namespace MVCQLKS.Ultilities
 {
     public class AuthActionFilter : FilterAttribute, IActionFilter
     {
+        public int RequiredPermission { get; set; }
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
 
@@ -15,10 +16,10 @@ namespace MVCQLKS.Ultilities
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            /*if (HttpContext.Current.Session["Logged"] == null)
+            if (HttpContext.Current.Session["Logged"] == null)
             {
                 filterContext.Result = new RedirectResult("~/Account/Login");
-            }*/
+            }
         }
     }
 }

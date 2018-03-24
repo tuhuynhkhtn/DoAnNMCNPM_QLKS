@@ -14,6 +14,7 @@
 }
 
 @section script{
+<script defer src="~/Content/js/fontawesome-all.js"></script>
     <script type="text/javascript">
         $('a[name ="aDelete"]').on('click', function () {
             var pId = ($(this).data('id'));
@@ -86,8 +87,8 @@ else
                             </td>
                             <td>
                                 <a name="aDelete" class="btn btn-danger btn-xs" href="javascript:void;" title="Xóa" data-id="@p.RoomID">
-                                    <i class="fa fa-close"></i>
-                                    @*<i class="fas fa-times"></i>*@
+                                    @*<i class="fa fa-close"></i>*@
+                                    <i class="fas fa-times"></i>
                                 </a>
                                 <a name="aUpdate" class="btn btn-success btn-xs" href="javascript:void;" title="Cập nhật" data-id="@p.RoomID">
                                     <i class="fa fa-check"></i>

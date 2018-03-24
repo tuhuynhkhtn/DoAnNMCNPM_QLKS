@@ -28,10 +28,16 @@ namespace MVCQLKS.Controllers
                 var user = dc.Users.Where(u => u.f_UserName == ui.UserName && u.f_Password == pass).FirstOrDefault();
                 if (user != null)
                 {
+                    ui.Permission = user.f_Permission;
+                    ui.UserID = user.f_ID;
                     Session["Logged"] = ui;
                     Response.Cookies["UserId"].Value = user.f_ID.ToString();
                     Response.Cookies["UserId"].Expires = DateTime.Now.AddDays(7);
 
+                    if (ui.Permission == 1)
+                    {
+                        return RedirectToAction("IndexManageRoom", "ManageRoom");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 else

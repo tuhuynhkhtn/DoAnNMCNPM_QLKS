@@ -1,4 +1,5 @@
 ﻿using MVCQLKS.Models;
+using MVCQLKS.Ultilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,12 @@ namespace MVCQLKS.Controllers
             return View();
         }
 
-        // GET: Home
+        public ActionResult IndexRoomAdmin(int permiss)
+        {
+            AddHelpers.RoomAdmin = true;
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult HienThi3PhongConTrong()
         {
             using (var dc = new QLKSEntities())
@@ -30,7 +36,6 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        // GET: Home
         public ActionResult HienThi3PhongDaChoThue()
         {
             using (var dc = new QLKSEntities())

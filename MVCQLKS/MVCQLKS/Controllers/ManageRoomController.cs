@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using MVCQLKS.Models;
 using System.Data.Entity;
+using MVCQLKS.Ultilities;
+using System.Threading;
 
 namespace MVCQLKS.Controllers
 {
+    [AuthActionFilter(RequiredPermission = 1)]
     public class ManageRoomController : Controller
     {
         // GET: ManageRoom/IndexManageRoom

@@ -48,6 +48,7 @@ namespace MVCQLKS.Ultilities
             return true;
         }
 
+        public static bool RoomAdmin = true;
         public static bool IsLoggedAdmin(this HtmlHelper html)
         {
             if (HttpContext.Current.Request.Cookies["UserId"] != null)
