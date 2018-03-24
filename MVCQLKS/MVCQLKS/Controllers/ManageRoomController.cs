@@ -177,10 +177,10 @@ namespace MVCQLKS.Controllers
             using (var dc = new QLKSEntities())
             {
                 // Kiểm tra ID phòng nhập vào có tồn tại không
-                var nsxU = dc.Rooms.Where(c => c.RoomID == room.RoomIDInfo).FirstOrDefault();
-                if (nsxU != null)
+                var rU = dc.Rooms.Where(c => c.RoomID == room.RoomIDInfo).FirstOrDefault();
+                if (rU != null)
                 {
-                    nsxU.RoomName = room.RoomNameInfo;
+                    rU.RoomName = room.RoomNameInfo;
 
                     // Kiểm tra tên phòng nhập vào có bị trùng không
                     var a = dc.Rooms.Where(c => c.RoomName == room.RoomNameInfo).FirstOrDefault();
@@ -190,7 +190,7 @@ namespace MVCQLKS.Controllers
                     }
                     else
                     {
-                        dc.Entry(nsxU).State = EntityState.Modified;
+                        dc.Entry(rU).State = EntityState.Modified;
                         dc.SaveChanges();
                         return RedirectToAction("QuanLyRoom");
                     }
@@ -215,6 +215,38 @@ namespace MVCQLKS.Controllers
                 };
                 return View(r);
             }
+        }
+
+        // POST: ManageProduct/UpdateInfoRoom
+        [HttpPost]
+        public ActionResult UpdateInfoCat(CatInfo cat)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                // Kiểm tra ID phòng nhập vào có tồn tại không
+                var cU = dc.Categories.Where(c => c.CatID == cat.CatIDInfo).FirstOrDefault();
+                if (cU != null)
+                {
+                    cU.CatName = cat.CatNameInfo;
+                    cU.CatType = cat.CatTypeInfo;
+                    cU.Price = cat.PriceInfo;
+                    cU.Note = cat.NoteInfo;
+
+                    // Kiểm tra tên phòng nhập vào có bị trùng không
+                    var a = dc.Categories.Where(c => c.CatName == cat.CatNameInfo).FirstOrDefault();
+                    if (a != null)
+                    {
+                        ViewBag.ErrorMsg = "Tên loại phòng đã tồn tại";
+                    }
+                    else
+                    {
+                        dc.Entry(cU).State = EntityState.Modified;
+                        dc.SaveChanges();
+                        return RedirectToAction("QuanLyCat");
+                    }
+                }
+            }
+            return View("UpdateCat");
         }
 
 

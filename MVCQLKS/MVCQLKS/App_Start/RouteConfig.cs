@@ -17,7 +17,7 @@ namespace MVCQLKS
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 //defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                defaults: new { controller = "ManageRoom", action = "QuanLyCat", id = UrlParameter.Optional }
+                defaults: new { controller = "ManageRoom", action = "QuanLyRoom", id = UrlParameter.Optional }
             );
         }
     }
