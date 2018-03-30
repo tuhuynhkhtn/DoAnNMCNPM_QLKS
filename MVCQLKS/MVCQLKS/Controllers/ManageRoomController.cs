@@ -180,18 +180,18 @@ namespace MVCQLKS.Controllers
         {
             using (var dc = new QLKSEntities())
             {
-                // Kiểm tra ID phòng nhập vào có tồn tại không
+                // Kiểm tra ID loại phòng nhập vào có tồn tại không
                 var rU = dc.Rooms.Where(c => c.RoomID == room.RoomIDInfo).FirstOrDefault();
+                room.PriceInfo = Ulti.GetCatPrice(room.CatIDInfo);
                 if (rU != null)
                 {
-                    var gia = Ulti.GetCatPrice(room.CatIDInfo);
                     rU.RoomName = room.RoomNameInfo;
-                    rU.CatID = room.CatIDInfo;
-                    rU.Price = gia;
+                    rU.CatID = room.CatIDInfo;                    
+                    rU.Price = room.PriceInfo;
                     rU.Status = room.StatusInfo;
 
-                    //Kiểm tra tên phòng nhập vào có bị trùng không
-                    var a = dc.Rooms.Where(c => c.RoomName == rU.RoomName && c.RoomID != room.RoomIDInfo).FirstOrDefault();
+                    //Kiểm tra tên loại phòng nhập vào có bị trùng không
+                    var a = dc.Rooms.Where(c => c.RoomName == rU.RoomName && c.RoomID != rU.RoomID).FirstOrDefault();
                     if (a != null)
                     {
                         ViewBag.ErrorMsg = "Tên phòng đã tồn tại";

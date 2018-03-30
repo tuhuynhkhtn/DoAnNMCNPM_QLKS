@@ -55,6 +55,13 @@
         @using (Html.BeginForm("UpdateInfoRoom", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmUpdate", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
+                @*@Html.LabelFor(m => m.CatIDInfo, "ID loại sản phẩm:", new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.DisplayFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "id loại sản phẩm" })
+                    </div>*@
+                @Html.HiddenFor(m => m.RoomIDInfo)
+            </div>
+            <div class="form-group">
                 @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
                     @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
@@ -91,7 +98,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-6 col-md-12">
+                <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">
                         <i class="fa fa-check"></i>
                         &nbsp;Cập nhật
