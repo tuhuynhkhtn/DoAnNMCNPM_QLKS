@@ -19,5 +19,6 @@ namespace MVCQLKS.Models
         public int CatID { get; set; }
         public decimal Price { get; set; }
         public int Status { get; set; }
+        public int MaximumCus { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace MVCQLKS.Models
         //public Nullable<decimal> PriceInfo { get; set; }
         public decimal PriceInfo { get; set; }
         public int StatusInfo { get; set; }
+        public int MaximumCusInfo { get; set; }
     }
 }

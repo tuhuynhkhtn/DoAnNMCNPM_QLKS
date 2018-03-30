@@ -102,7 +102,8 @@ namespace MVCQLKS.Controllers
                         RoomName = room.RoomNameInfo,
                         CatID = room.CatIDInfo,
                         Price = gia,
-                        Status = room.StatusInfo
+                        Status = room.StatusInfo,
+                        MaximumCus = room.MaximumCusInfo
                     };
 
                     dc.Rooms.Add(r);
@@ -168,7 +169,8 @@ namespace MVCQLKS.Controllers
                     RoomNameInfo = rU.RoomName,
                     CatIDInfo = rU.CatID,
                     PriceInfo = rU.Price,
-                    StatusInfo = rU.Status
+                    StatusInfo = rU.Status,
+                    MaximumCusInfo = rU.MaximumCus
                 };
                 return View(r);
             }
@@ -189,6 +191,7 @@ namespace MVCQLKS.Controllers
                     rU.CatID = room.CatIDInfo;                    
                     rU.Price = room.PriceInfo;
                     rU.Status = room.StatusInfo;
+                    rU.MaximumCus = room.MaximumCusInfo;
 
                     //Kiểm tra tên loại phòng nhập vào có bị trùng không
                     var a = dc.Rooms.Where(c => c.RoomName == rU.RoomName && c.RoomID != rU.RoomID).FirstOrDefault();
