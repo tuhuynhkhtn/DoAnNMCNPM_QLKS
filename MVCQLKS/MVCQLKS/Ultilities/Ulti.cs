@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Security.Cryptography;
 using System.Text;
+using MVCQLKS.Models;
 
 namespace MVCQLKS.Ultilities
 {
@@ -22,6 +23,21 @@ namespace MVCQLKS.Ultilities
                 }
                 return sb.ToString();
             }
+        }
+
+        public static decimal GetCatPrice(int id)
+        {
+            decimal gia = 0;
+            using (var dc = new QLKSEntities())
+            {
+                var cat = dc.Categories.Where(c => c.CatID == id).FirstOrDefault();
+                if (cat != null)
+                {
+                    gia = cat.Price;
+                    return gia;
+                }
+            }
+            return gia;
         }
     }
 }

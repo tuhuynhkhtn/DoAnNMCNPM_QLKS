@@ -96,11 +96,12 @@ namespace MVCQLKS.Controllers
                 }
                 else
                 {
+                    var gia = Ulti.GetCatPrice(room.CatIDInfo);
                     var r = new Room
                     {
                         RoomName = room.RoomNameInfo,
                         CatID = room.CatIDInfo,
-                        Price = room.PriceInfo,
+                        Price = gia,
                         Status = room.StatusInfo
                     };
 
@@ -183,10 +184,14 @@ namespace MVCQLKS.Controllers
                 var rU = dc.Rooms.Where(c => c.RoomID == room.RoomIDInfo).FirstOrDefault();
                 if (rU != null)
                 {
+                    var gia = Ulti.GetCatPrice(room.CatIDInfo);
                     rU.RoomName = room.RoomNameInfo;
+                    rU.CatID = room.CatIDInfo;
+                    rU.Price = gia;
+                    rU.Status = room.StatusInfo;
 
-                    // Kiểm tra tên phòng nhập vào có bị trùng không
-                    var a = dc.Rooms.Where(c => c.RoomName == room.RoomNameInfo).FirstOrDefault();
+                    //Kiểm tra tên phòng nhập vào có bị trùng không
+                    var a = dc.Rooms.Where(c => c.RoomName == rU.RoomName && c.RoomID != room.RoomIDInfo).FirstOrDefault();
                     if (a != null)
                     {
                         ViewBag.ErrorMsg = "Tên phòng đã tồn tại";
@@ -220,7 +225,6 @@ namespace MVCQLKS.Controllers
             }
         }
 
-        // POST: ManageProduct/UpdateInfoRoom
         [HttpPost]
         public ActionResult UpdateInfoCat(CatInfo cat)
         {
