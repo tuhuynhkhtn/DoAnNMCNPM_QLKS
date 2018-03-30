@@ -27,12 +27,13 @@
     <script src="~/Content/js/bootstrap-select.min.js"></script>
     <script src="~/Content/js/jquery.bootstrap-touchspin.min.js"></script>
     <script src="~/Content/js/summernote.min.js"></script>
-<script src="~/Content/js/jquery.validate.min.js"></script>
+    <script src="~/Content/js/alert.js"></script>
+    <script src="~/Content/js/jquery.validate.min.js"></script>
     <script type="text/javascript">
-        $('.selectpicker').selectpicker({
-            //style: 'btn-info',
-            //size: 4
-        });
+        //$('.selectpicker').selectpicker({
+        //    //style: 'btn-info',
+        //    //size: 4
+        //});
         $("input[name='PriceInfo']").TouchSpin({
             initval: 500,
             min: 500,
@@ -68,6 +69,13 @@
         }
         @using (Html.BeginForm("UpdateInfoCat", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmUpdate", enctype = "multipart/form-data" }))
         {
+            <div class="form-group">
+                @*@Html.LabelFor(m => m.CatIDInfo, "ID loại sản phẩm:", new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.DisplayFor(m => m.CatIDInfo, new { @class = "form-control", placeholder = "id loại sản phẩm" })
+                    </div>*@
+                @Html.HiddenFor(m => m.CatIDInfo)
+            </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.CatNameInfo, "Tên loại phòng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
