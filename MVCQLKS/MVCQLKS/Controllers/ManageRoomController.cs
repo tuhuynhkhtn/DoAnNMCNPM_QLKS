@@ -96,12 +96,14 @@ namespace MVCQLKS.Controllers
                 }
                 else
                 {
-                    var gia = Ulti.GetCatPrice(room.CatIDInfo);
+                    //var gia = Ulti.GetCatPrice(room.CatIDInfo);
                     var r = new Room
                     {
                         RoomName = room.RoomNameInfo,
-                        CatID = room.CatIDInfo,
-                        Price = gia,
+                        //CatID = room.CatIDInfo,
+                        //Price = gia,
+                        RoomType = room.RoomTypeInfo,
+                        Price = room.PriceInfo,
                         Status = room.StatusInfo,
                         MaximumCus = room.MaximumCusInfo
                     };
@@ -167,7 +169,8 @@ namespace MVCQLKS.Controllers
                 {
                     RoomIDInfo = rU.RoomID,
                     RoomNameInfo = rU.RoomName,
-                    CatIDInfo = rU.CatID,
+                    //CatIDInfo = rU.CatID,
+                    RoomTypeInfo = rU.RoomType,
                     PriceInfo = rU.Price,
                     StatusInfo = rU.Status,
                     MaximumCusInfo = rU.MaximumCus
@@ -184,11 +187,12 @@ namespace MVCQLKS.Controllers
             {
                 // Kiểm tra ID loại phòng nhập vào có tồn tại không
                 var rU = dc.Rooms.Where(c => c.RoomID == room.RoomIDInfo).FirstOrDefault();
-                room.PriceInfo = Ulti.GetCatPrice(room.CatIDInfo);
+                //room.PriceInfo = Ulti.GetCatPrice(room.CatIDInfo);
                 if (rU != null)
                 {
                     rU.RoomName = room.RoomNameInfo;
-                    rU.CatID = room.CatIDInfo;                    
+                    //rU.CatID = room.CatIDInfo;   
+                    rU.RoomType = room.RoomTypeInfo;                 
                     rU.Price = room.PriceInfo;
                     rU.Status = room.StatusInfo;
                     rU.MaximumCus = room.MaximumCusInfo;

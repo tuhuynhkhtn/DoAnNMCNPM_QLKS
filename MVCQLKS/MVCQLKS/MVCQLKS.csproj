@@ -251,8 +251,8 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Home\_Partial3PhongConTrong.cshtml" />
-    <Content Include="Views\Home\_Partial3PhongDaChoThue.cshtml" />
+    <Content Include="Views\Home\_Partial6PhongConTrong.cshtml" />
+    <Content Include="Views\Home\_Partial6PhongDaChoThue.cshtml" />
     <Content Include="Views\Room\Detail.cshtml" />
     <Content Include="Views\Employ\AddRoomChoNV.cshtml" />
     <Content Include="Views\Employ\AddCatChoNV.cshtml" />

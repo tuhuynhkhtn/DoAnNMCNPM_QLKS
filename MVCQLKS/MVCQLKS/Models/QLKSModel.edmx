@@ -54,8 +54,9 @@
           </Key>
           <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoomName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CatID" Type="int" Nullable="false" />
+          <Property Name="RoomType" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="MaximumCus" Type="int" Nullable="false" />
         </EntityType>
@@ -124,17 +125,6 @@
           <Property Name="CusID" Type="Int32" Nullable="false" />
           <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
-        <EntityType Name="Room">
-          <Key>
-            <PropertyRef Name="RoomID" />
-          </Key>
-          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CatID" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="MaximumCus" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="f_ID" />
@@ -150,9 +140,21 @@
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="Rooms" EntityType="Self.Room" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Rooms" EntityType="QLKSModel.Room" />
         </EntityContainer>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="MaximumCus" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -205,18 +207,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="QLKSModel.Room">
-              <MappingFragment StoreEntitySet="Rooms">
-                <ScalarProperty Name="MaximumCus" ColumnName="MaximumCus" />
-                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
-                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
-                <ScalarProperty Name="CatID" ColumnName="CatID" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="QLKSModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -225,6 +215,19 @@
                 <ScalarProperty Name="f_Password" ColumnName="f_Password" />
                 <ScalarProperty Name="f_Name" ColumnName="f_Name" />
                 <ScalarProperty Name="f_Permission" ColumnName="f_Permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="QLKSModel.Room">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="MaximumCus" ColumnName="MaximumCus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

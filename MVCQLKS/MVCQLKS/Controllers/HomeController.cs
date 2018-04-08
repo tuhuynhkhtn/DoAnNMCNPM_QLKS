@@ -22,31 +22,31 @@ namespace MVCQLKS.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult HienThi3PhongConTrong()
+        public ActionResult HienThi6PhongConTrong()
         {
             using (var dc = new QLKSEntities())
             {
                 var l = dc.Rooms
                     .Where(p => p.Status == 0)
                     .OrderByDescending(p => p.RoomID)
-                    .Take(3)
+                    .Take(6)
                     .ToList();
 
-                return PartialView("_Partial3PhongConTrong", l);
+                return PartialView("_Partial6PhongConTrong", l);
             }
         }
 
-        public ActionResult HienThi3PhongDaChoThue()
+        public ActionResult HienThi6PhongDaChoThue()
         {
             using (var dc = new QLKSEntities())
             {
                 var l = dc.Rooms
                     .Where(p => p.Status == 1)
                     .OrderBy(p => p.RoomID)
-                    .Take(3)
+                    .Take(6)
                     .ToList();
 
-                return PartialView("_Partial3PhongDaChoThue", l);
+                return PartialView("_Partial6PhongDaChoThue", l);
             }
         }
     }

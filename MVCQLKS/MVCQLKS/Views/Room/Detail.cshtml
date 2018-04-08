@@ -21,7 +21,9 @@
         @*<h4>Giá: @string.Format("{0:C}", @p.Price)</h4>*@
         @*<h4 class="caption-red">Giá: @string.Format("{0:N0} đ", @Model.Price)</h4>*@
         <h4 class="caption-red">Giá: @Html.Price2String((decimal)Model.Price)</h4>
-        <h4>Loại phòng: @ViewBag.loaiPhong</h4>
+        <h4>Loại phòng: @Model.RoomType</h4>
+        <h4>Số khách tối đa: @Model.MaximumCus</h4>
+        <p>Ghi chú: @Model.Note</p>
         <p>
             Tình trạng:
             @if (@Model.Status > 0)

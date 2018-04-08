@@ -16,8 +16,9 @@ namespace MVCQLKS.Models
     {
         public int RoomID { get; set; }
         public string RoomName { get; set; }
-        public int CatID { get; set; }
+        public string RoomType { get; set; }
         public decimal Price { get; set; }
+        public string Note { get; set; }
         public int Status { get; set; }
         public int MaximumCus { get; set; }
     }
