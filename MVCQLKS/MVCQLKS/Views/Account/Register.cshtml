@@ -1,8 +1,10 @@
 ﻿@using MVCQLKS.Models
+@using BotDetect.Web.Mvc;
 
 @model UserRegisting
 
 @section style{
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .error {
             color: red;
@@ -15,6 +17,13 @@
 }
 
 <div class="row">
+    @if (ViewBag.ErrorMsg != null)
+    {
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> @ViewBag.ErrorMsg
+        </div>
+    }
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", id = "frmRegister" }))
     {
         <div class="control-group">
@@ -39,6 +48,19 @@
             @Html.LabelFor(m => m.Name, "Họ tên:", new { @class = "col-md-3 control-label" })
             <div class="col-sm-8 form-control-static">
                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-7">
+                @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha"); }
+                @Html.Captcha(exampleCaptcha)
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CaptchaCode">Captcha:</label>
+            <div class="col-sm-7">
+                @Html.TextBox("CaptchaCode")
             </div>
         </div>
         <div class="form-group">
