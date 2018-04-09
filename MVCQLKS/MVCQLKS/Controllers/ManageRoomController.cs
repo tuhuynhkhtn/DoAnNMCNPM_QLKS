@@ -72,14 +72,16 @@ namespace MVCQLKS.Controllers
         // GET: ManageRoom/AddRoom
         public ActionResult AddRoom()
         {
-            //var r = new RoomInfo
-            //{
-            //    RoomNameInfo = "room",
-            //    CatIDInfo = 3,
-            //    PriceInfo = 200000,
-            //    StatusInfo = 0 //còn trống
-            //};
-            //return View(r);
+            var r = new RoomInfo
+            {
+                RoomNameInfo = "room",
+                RoomTypeInfo = "A",
+                NoteInfo = " ",
+                PriceInfo = 200000,
+                StatusInfo = 0, //còn trống
+                MaximumCusInfo = 3
+            };
+            return View(r);
             return View();
         }
 
@@ -104,6 +106,7 @@ namespace MVCQLKS.Controllers
                         //Price = gia,
                         RoomType = room.RoomTypeInfo,
                         Price = room.PriceInfo,
+                        Note = room.NoteInfo,
                         Status = room.StatusInfo,
                         MaximumCus = room.MaximumCusInfo
                     };
@@ -172,6 +175,7 @@ namespace MVCQLKS.Controllers
                     //CatIDInfo = rU.CatID,
                     RoomTypeInfo = rU.RoomType,
                     PriceInfo = rU.Price,
+                    NoteInfo = rU.Note,
                     StatusInfo = rU.Status,
                     MaximumCusInfo = rU.MaximumCus
                 };
@@ -195,6 +199,7 @@ namespace MVCQLKS.Controllers
                     rU.RoomType = room.RoomTypeInfo;                 
                     rU.Price = room.PriceInfo;
                     rU.Status = room.StatusInfo;
+                    rU.Note = room.RoomTypeInfo;
                     rU.MaximumCus = room.MaximumCusInfo;
 
                     //Kiểm tra tên loại phòng nhập vào có bị trùng không

@@ -11,9 +11,16 @@ namespace MVCQLKS.Models
         public string RoomNameInfo { get; set; }
         public string RoomTypeInfo { get; set; }
         public decimal PriceInfo { get; set; }
-        public int NoteInfo { get; set; }
+        public string NoteInfo { get; set; }
         public int StatusInfo { get; set; }
         public int MaximumCusInfo { get; set; }
 
+    }
+
+    public enum ValueRoomType
+    {
+        A,
+        B,
+        C
     }
 }
