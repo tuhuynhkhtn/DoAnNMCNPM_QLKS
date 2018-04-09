@@ -92,28 +92,7 @@
                     @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
                 </div>
                 @Html.LabelFor(m => m.RoomTypeInfo, "Loại phòng:", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-4">
-                    @*@Html.DropDownListFor(m => m.StatusInfo, new List<SelectListItem>() {
-                    new SelectListItem() {
-                        Text = "1",
-                        Value = "1"
-                    },
-                    new SelectListItem() {
-                        Text = "2",
-                        Value = "2"
-                    },
-                    new SelectListItem() {
-                        Text = "3",
-                        Value = "3"
-                    },
-                }, new { @class = "form-control selectpicker" })*@
-
-                    @*<select class="form-control selectpicker" id="roomtype">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>*@
-
+                <div class="col-sm-4">                  
                     @Html.DropDownListFor(m => m.RoomTypeInfo, new SelectList(Enum.GetValues(typeof(ValueRoomType))), new { @class = "form-control selectpicker" })
                 </div>
             </div>

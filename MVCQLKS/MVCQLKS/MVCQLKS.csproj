@@ -274,6 +274,7 @@
     <Content Include="Views\ManageRoom\AddRoom.cshtml" />
     <Content Include="Views\ManageRoom\UpdateRoom.cshtml" />
     <Content Include="Views\ManageRoom\UpdateCat.cshtml" />
+    <Content Include="Views\Room\ListTimKiem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

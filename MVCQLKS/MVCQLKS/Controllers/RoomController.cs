@@ -61,6 +61,54 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        public ActionResult TimKiem(string noidungSearch, int page = 1)
+        {
+            ViewBag.KeySearch = noidungSearch;
+            using (var dc = new QLKSEntities())
+            {
+                int price = 0;
+
+                if (!int.TryParse(noidungSearch, out price))
+                {
+                    price = 0;
+                }
+
+                int totalP1 = (from p in dc.Rooms
+                               where p.RoomName.Contains(noidungSearch) || p.RoomType.Contains(noidungSearch) || p.Price == price
+                               select p).Count();
+
+
+                if (totalP1 == 0)
+                {
+                    return View("ListTimKiem", new List<Room>());
+                }
+
+                // Tính tổng số trang phải hiển thị
+                int nPage = totalP1 / nPerPage + (totalP1 % nPerPage > 0 ? 1 : 0);
+
+                if (page < 1)
+                {
+                    page = 1;
+                }
+                if (page > nPage)
+                {
+                    page = nPage;
+                }
+
+                ViewBag.totalPage = nPage;
+                ViewBag.curPage = page;
+
+                var l = (from p in dc.Rooms
+                         where p.RoomName.Contains(noidungSearch) || p.RoomType.Contains(noidungSearch) || p.Price == price
+                         select p)
+                               .OrderBy(p => p.RoomID)
+                               .Skip((page - 1) * nPerPage)
+                               .Take(nPerPage).ToList();
+
+                return View("ListTimKiem", l);
+            }
+        }
+
 
     }
 }
