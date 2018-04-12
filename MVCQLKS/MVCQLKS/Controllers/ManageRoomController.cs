@@ -78,6 +78,19 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        public ActionResult DeleteCusType(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var ctD = dc.CusTypes.Where(c => c.CusTypeID == id).FirstOrDefault();
+                if (ctD != null)
+                {
+                    dc.CusTypes.Remove(ctD);
+                    dc.SaveChanges();
+                }
+                return RedirectToAction("QuanLyCusType");
+            }
+        }
 
         // GET: ManageRoom/AddRoom
         public ActionResult AddRoom()
@@ -172,7 +185,44 @@ namespace MVCQLKS.Controllers
             return View("AddCat");
         }
 
-       
+        public ActionResult AddCusType()
+        {
+            var r = new CusTypeInfo
+            {
+                CusTypeNameInfo = "custype",
+                CoefficientInfo = 1.5
+            };
+            return View(r);
+            //return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCusType(CusTypeInfo custype)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var custypeTonTai = dc.CusTypes.Where(m => m.CusTypeName == custype.CusTypeNameInfo).FirstOrDefault();
+                if (custypeTonTai != null)
+                {
+                    ViewBag.ErrorMsg = "Tên loại khách hàng đã tồn tại";
+                }
+                else
+                {
+                    //var gia = Ulti.GetCatPrice(room.CatIDInfo);
+                    var r = new CusType
+                    {
+                        CusTypeName = custype.CusTypeNameInfo,
+                        Coefficient = custype.CoefficientInfo
+                    };
+
+                    dc.CusTypes.Add(r);
+                    dc.SaveChanges();
+                    return RedirectToAction("QuanLyCusType");
+                }
+            }
+            return View("AddCusType");
+        }
+
         // GET: ManageRoom/UpdateRoom
         public ActionResult UpdateRoom(int id)
         {
@@ -207,7 +257,7 @@ namespace MVCQLKS.Controllers
                 {
                     rU.RoomName = room.RoomNameInfo;
                     //rU.CatID = room.CatIDInfo;   
-                    rU.RoomType = room.RoomTypeInfo;                 
+                    rU.RoomType = room.RoomTypeInfo;
                     rU.Price = room.PriceInfo;
                     rU.Status = room.StatusInfo;
                     rU.Note = room.RoomTypeInfo;
