@@ -48,6 +48,15 @@
 @if (Model.Count == 0)
 {
     @:Không có danh mục phòng
+
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="@Url.Action("AddRoom","ManageRoom")" title="Thêm mới phòng">
+                <i class="fa fa-plus"></i>
+                &nbsp;Thêm mới phòng
+            </a>
+        </div>
+    </div>
 }
 else
 {

@@ -30,23 +30,22 @@
 @if (Model.Count == 0)
 {
     @:Không có loại khách hàng
+
     <div class="row">
-    </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a class="btn btn-primary" href="@Url.Action("AddCusType","ManageRoom")" title="Thêm mới loại phòng">
-                    <i class="fa fa-plus"></i>
-                    &nbsp;Thêm mới loại khách hàng
-                </a>
-            </div>
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="@Url.Action("AddCusType","ManageRoom")" title="Thêm mới loại khách hàng">
+                <i class="fa fa-plus"></i>
+                &nbsp;Thêm mới loại khách hàng
+            </a>
         </div>
+    </div>
 }
 else
 {
     <form id="frmDelete" method="post" action="@Url.Action("DeleteCusType", "ManageRoom")">
         <input id="pId" type="hidden" name="id" />
     </form>
-    <form id="frmUpdate" method="post" action="@Url.Action("UpdateCat", "ManageRoom")">
+    <form id="frmUpdate" method="post" action="@Url.Action("UpdateCusType", "ManageRoom")">
         <input id="pIdUpdate" type="hidden" name="id" />
     </form>
         <div class="row">

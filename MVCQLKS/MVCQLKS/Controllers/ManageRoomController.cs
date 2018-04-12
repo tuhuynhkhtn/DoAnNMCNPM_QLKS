@@ -187,13 +187,13 @@ namespace MVCQLKS.Controllers
 
         public ActionResult AddCusType()
         {
-            var r = new CusTypeInfo
-            {
-                CusTypeNameInfo = "custype",
-                CoefficientInfo = 1.5
-            };
-            return View(r);
-            //return View();
+            //var r = new CusTypeInfo
+            //{
+            //    CusTypeNameInfo = "custype",
+            //    CoefficientInfo = 1.5
+            //};
+            //return View(r);
+            return View();
         }
 
         [HttpPost]
@@ -327,6 +327,50 @@ namespace MVCQLKS.Controllers
                 }
             }
             return View("UpdateCat");
+        }
+
+        public ActionResult UpdateCusType(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var ctU = dc.CusTypes.Where(c => c.CusTypeID == id).FirstOrDefault();
+                var r = new CusTypeInfo
+                {
+                    CusTypeIDInfo = ctU.CusTypeID,
+                    CusTypeNameInfo = ctU.CusTypeName,
+                    CoefficientInfo = ctU.Coefficient
+                };
+                return View(r);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UpdateInfoCusType(CusTypeInfo ct)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                // Kiểm tra ID loại khách hàng nhập vào có tồn tại không
+                var ctU = dc.CusTypes.Where(c => c.CusTypeID == ct.CusTypeIDInfo).FirstOrDefault();
+                if (ctU != null)
+                {
+                    ctU.CusTypeName = ct.CusTypeNameInfo;
+                    ctU.Coefficient = ct.CoefficientInfo;
+
+                    //Kiểm tra tên loại phòng nhập vào có bị trùng không
+                    var a = dc.CusTypes.Where(c => c.CusTypeName == ctU.CusTypeName && c.CusTypeID != ctU.CusTypeID).FirstOrDefault();
+                    if (a != null)
+                    {
+                        ViewBag.ErrorMsg = "Tên loại khách hàng đã tồn tại";
+                    }
+                    else
+                    {
+                        dc.Entry(ctU).State = EntityState.Modified;
+                        dc.SaveChanges();
+                        return RedirectToAction("QuanLyCusType");
+                    }
+                }
+            }
+            return View("UpdateCusType");
         }
 
 
