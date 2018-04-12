@@ -39,6 +39,15 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        public ActionResult QuanLyCusType()
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var l = dc.CusTypes.ToList();
+                return View(l);
+            }
+        }
+
         // GET: ManageRoom/DeleteRoom
         public ActionResult DeleteRoom(int id)
         {
@@ -68,6 +77,7 @@ namespace MVCQLKS.Controllers
                 return RedirectToAction("QuanLyCat");
             }
         }
+
 
         // GET: ManageRoom/AddRoom
         public ActionResult AddRoom()
@@ -162,6 +172,7 @@ namespace MVCQLKS.Controllers
             return View("AddCat");
         }
 
+       
         // GET: ManageRoom/UpdateRoom
         public ActionResult UpdateRoom(int id)
         {

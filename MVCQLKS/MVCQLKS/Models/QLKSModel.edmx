@@ -25,6 +25,14 @@
           <Property Name="CusIDCard" Type="int" Nullable="false" />
           <Property Name="CusAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
+        <EntityType Name="CusTypes">
+          <Key>
+            <PropertyRef Name="CusTypeID" />
+          </Key>
+          <Property Name="CusTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CusTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Coefficient" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -54,7 +62,7 @@
           </Key>
           <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoomName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="RoomType" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoomType" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="int" Nullable="false" />
@@ -73,6 +81,7 @@
         <EntityContainer Name="QLKSModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CusTypes" EntityType="Self.CusTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
@@ -142,6 +151,7 @@
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Rooms" EntityType="QLKSModel.Room" />
+          <EntitySet Name="CusTypes" EntityType="QLKSModel.CusType" />
         </EntityContainer>
         <EntityType Name="Room">
           <Key>
@@ -149,11 +159,19 @@
           </Key>
           <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoomName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="MaximumCus" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CusType">
+          <Key>
+            <PropertyRef Name="CusTypeID" />
+          </Key>
+          <Property Name="CusTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CusTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Coefficient" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -228,6 +246,15 @@
                 <ScalarProperty Name="RoomType" ColumnName="RoomType" />
                 <ScalarProperty Name="RoomName" ColumnName="RoomName" />
                 <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CusTypes">
+            <EntityTypeMapping TypeName="QLKSModel.CusType">
+              <MappingFragment StoreEntitySet="CusTypes">
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+                <ScalarProperty Name="CusTypeName" ColumnName="CusTypeName" />
+                <ScalarProperty Name="CusTypeID" ColumnName="CusTypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

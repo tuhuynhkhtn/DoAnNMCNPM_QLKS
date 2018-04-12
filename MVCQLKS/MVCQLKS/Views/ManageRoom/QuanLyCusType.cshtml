@@ -1,0 +1,98 @@
+﻿@using MVCQLKS.Models
+@model IList<CusType>
+
+@{
+    ViewBag.Title = "QuanLyCusType";
+    Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
+}
+
+@section script{
+    <script type="text/javascript">
+        $('a[name ="aDelete"]').on('click', function () {
+            var pId = ($(this).data('id'));
+            $('#pId').val(pId);
+            $('#frmDelete').submit();
+        });
+
+        $('a[name ="aUpdate"]').on('click', function () {
+            var pId = ($(this).data('id'));
+            //alert(pId);
+            $('#pIdUpdate').val(pId);
+            $('#frmUpdate').submit();
+        });
+    </script>
+}
+
+@section ContentHeaderManageRoom{
+    Danh sách loại khách hàng
+}
+
+@if (Model.Count == 0)
+{
+    @:Không có loại khách hàng
+    <div class="row">
+        </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="@Url.Action("AddCusType","ManageRoom")" title="Thêm mới loại phòng">
+                <i class="fa fa-plus"></i>
+                &nbsp;Thêm mới loại khách hàng
+            </a>
+        </div>
+    </div>
+}
+else
+{
+    <form id="frmDelete" method="post" action="@Url.Action("DeleteCusType", "ManageRoom")">
+        <input id="pId" type="hidden" name="id" />
+    </form>
+        <form id="frmUpdate" method="post" action="@Url.Action("UpdateCusType", "ManageRoom")">
+            <input id="pIdUpdate" type="hidden" name="id" />
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-headding text-center">
+                    <h2>Danh sách loại khách hàng</h2>
+                </div>
+                <table class="table table-striped table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Loại khách hàng</th>
+                            <th>Hệ số</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int stt = 0;
+                        }
+                        @foreach (var p in Model)
+                        {
+                            stt++;
+                            <tr>
+                                <td>@stt</td>
+                                <td>@p.CusTypeName</td>
+                                <td>@p.Coefficient</td>
+                                <td>
+                                    <a name="aDelete" class="btn btn-danger btn-xs" href="javascript:void;" title="Xóa" data-id="@p.CusTypeID">
+                                        @*<i class="fa fa-close"></i>*@
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                    <a name="aUpdate" class="btn btn-success btn-xs" href="javascript:void;" title="Cập nhật" data-id="@p.CusTypeID">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" href="@Url.Action("AddCusType","ManageRoom")" title="Thêm mới loại phòng">
+                    <i class="fa fa-plus"></i>
+                    &nbsp;Thêm mới loại khách hàng
+                </a>
+            </div>
+        </div>
+                            }
+
+<script defer src="~/Content/js/fontawesome-all.js"></script>

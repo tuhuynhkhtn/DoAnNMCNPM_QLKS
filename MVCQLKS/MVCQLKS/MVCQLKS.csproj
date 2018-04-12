@@ -188,6 +188,10 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CusType.cs">
+      <DependentUpon>QLKSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CusTypeInfo.cs" />
     <Compile Include="Models\Order.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
@@ -275,6 +279,7 @@
     <Content Include="Views\ManageRoom\UpdateRoom.cshtml" />
     <Content Include="Views\ManageRoom\UpdateCat.cshtml" />
     <Content Include="Views\Room\ListTimKiem.cshtml" />
+    <Content Include="Views\ManageRoom\QuanLyCusType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

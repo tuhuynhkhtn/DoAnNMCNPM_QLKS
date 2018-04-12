@@ -11,6 +11,7 @@
         <EntityTypeShape EntityType="QLKSModel.Order" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.User" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.Room" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLKSModel.CusType" Width="1.5" PointX="6.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
