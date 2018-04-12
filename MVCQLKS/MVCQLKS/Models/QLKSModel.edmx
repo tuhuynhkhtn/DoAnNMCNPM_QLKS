@@ -22,7 +22,7 @@
           <Property Name="CusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CusName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CusTypeID" Type="int" Nullable="false" />
-          <Property Name="CusIDCard" Type="int" Nullable="false" />
+          <Property Name="CusIDCard" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="CusAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="RoomID" Type="int" Nullable="false" />
           <Property Name="BookRoom" Type="int" Nullable="false" />
@@ -172,7 +172,7 @@
           <Property Name="CusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CusTypeID" Type="Int32" Nullable="false" />
-          <Property Name="CusIDCard" Type="Int32" Nullable="false" />
+          <Property Name="CusIDCard" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="CusAddress" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="RoomID" Type="Int32" Nullable="false" />
           <Property Name="BookRoom" Type="Int32" Nullable="false" />

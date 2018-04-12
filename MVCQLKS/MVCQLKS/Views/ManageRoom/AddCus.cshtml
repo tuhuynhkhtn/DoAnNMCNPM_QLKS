@@ -1,15 +1,14 @@
 ﻿@using MVCQLKS.Models
 @using MVCQLKS.Ultilities
-@*@model Room*@
-@model RoomInfo
+@model CusInfo
 
 @{
-    ViewBag.Title = "AddRoom";
+    ViewBag.Title = "AddCus";
     Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
 }
 
 @section ContentHeaderManageRoom{
-    Thêm mới phòng
+    Thêm mới khách hàng
 }
 
 @section style{
@@ -34,36 +33,33 @@
             //style: 'btn-info',
             //size: 4
         });
-        $("input[name='PriceInfo']").TouchSpin({
-            initval: 500,
-            min: 500,
-            max: 1000000000,
-            stepinterval: 50,
-            maxboostedstep: 10000000,
-            prefix: 'VNĐ'
+        $("input[name='CusIDCard']").TouchSpin({
+            //initval: 0,
+            min: 0,
+            max: 999999999,
         });
-        $("input[name='MaximumCusInfo']").TouchSpin({
-            initval: 3,
-            min: 1,
-            max: 1000000000,
-            stepinterval: 50,
-            maxboostedstep: 10000000,
-            prefix: 'người'
-        });
-        //$("input[name='quantity']").TouchSpin({
-        //    //initval: 3,
-        //    min: 3,
-        //    max: 1000000000,
-        //    stepinterval: 50,
-        //    maxboostedstep: 10000000,
-        //    prefix: 'người'
-        //});
         $("#frmAdd").validate({
             rules: {
-                RoomNameInfo: "required"
+                CusNameInfo: "required",
+                CusIDCardInfo: {
+                    required: true,
+                    minlength: 9,
+                },
+                CusAddressInfo: {
+                    required: true,
+                    minlength: 25,
+                },
             },
             messages: {
-                RoomNameInfo: "Cần nhập tên phòng"
+                CusNameInfo: "Cần nhập họ tên khách hàng",
+                CusIDCardInfo: {
+                    required: "Cần nhập CMND",
+                    minlength: "CMND ít nhất 9 kí tự"
+                },
+                CusAddressInfo: {
+                    required: "Cần nhập địa chỉ",
+                    minlength: "Địa chỉ ít nhất 25 kí tự"
+                }
             }
         });
         $('a[name ="aAdd"]').on('click', function () {
@@ -84,60 +80,50 @@
             //<p class="error">@ViewBag.ErrorMsg</p>
             //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
         }
-        @using (Html.BeginForm("AddRoom", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddCus", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
-                @Html.LabelFor(m => m.RoomNameInfo, "Tên phòng:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.CusNameInfo, "Họ tên:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                    @Html.TextBoxFor(m => m.RoomNameInfo, new { @class = "form-control", placeholder = "Tên phòng" })
+                    @Html.TextBoxFor(m => m.CusNameInfo, new { @class = "form-control", placeholder = "Họ tên" })
                 </div>
-                @Html.LabelFor(m => m.RoomTypeInfo, "Loại phòng:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.CusTypeIDInfo, "Loại khách:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                    @Html.DropDownListFor(m => m.RoomTypeInfo, new SelectList(Enum.GetValues(typeof(ValueRoomType))), new { @class = "form-control selectpicker" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-4">
-                    <input name="PriceInfo" type="text" class="form-control" placeholder="Đơn giá">
-                </div>
-                @Html.LabelFor(m => m.NoteInfo, "Ghi chú:", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-4">
-                    @Html.TextBoxFor(m => m.NoteInfo, new { @class = "form-control", placeholder = "Ghi chú" })
+                    @Html.DropDownListFor(m => m.CusTypeIDInfo, Html.GetSLICusType(), new { @class = "form-control selectpicker", placeholder = "loại khách" })
                 </div>
             </div>
 
             <div class="form-group">
-                @*@Html.LabelFor(m => m.PriceInfo, "Đơn giá:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.CusIDCardInfo, "CMND:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                    <input name="PriceInfo" type="text" class="form-control" placeholder="Đơn giá" disabled/>
-                </div>*@
+                    @Html.TextBoxFor(m => m.CusIDCardInfo, new { @class = "form-control", placeholder = "CMND" })
+                </div>
+                @Html.LabelFor(m => m.CusAddressInfo, "Địa chỉ:", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-4">
+                    @Html.TextBoxFor(m => m.CusAddressInfo, new { @class = "form-control", placeholder = "Địa chỉ" })
+                </div>
+            </div>
 
-
-
-                @Html.LabelFor(m => m.StatusInfo, "Tình trạng:", new { @class = "col-sm-2 control-label" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.RoomIDInfo, "Phòng:", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(m => m.RoomIDInfo, Html.GetSLIRoom(), new { @class = "form-control selectpicker", placeholder = "phòng" })
+                </div>
+                @Html.LabelFor(m => m.BookRoomInfo, "Là người đặt phòng:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
                     @*@Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })*@
 
-                    @Html.DropDownListFor(m => m.StatusInfo, new List<SelectListItem>() {
+                    @Html.DropDownListFor(m => m.BookRoomInfo, new List<SelectListItem>() {
                     new SelectListItem() {
-                        Text = "Đã cho thuê",
+                        Text = "Có",
                         Value = "1"
                     },
                     new SelectListItem() {
-                        Text = "Còn trống",
+                        Text = "Không",
                         Value = "0"
                     },
                 }, new { @class = "form-control selectpicker" })
                 </div>
-
-
-                @Html.LabelFor(m => m.MaximumCusInfo, "Số khách tối đa:", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-4">
-                    <input name="MaximumCusInfo" type="text" class="form-control" placeholder="Số khách tối đa">
-                </div>
-
             </div>
 
             <div class="form-group">

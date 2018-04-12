@@ -164,5 +164,39 @@ namespace MVCQLKS.Ultilities
             return name;
         }
 
+        public static IList<SelectListItem> GetSLICusType(this HtmlHelper html)
+        {
+            var l = new List<SelectListItem>();
+            using (var dc = new QLKSEntities())
+            {
+                foreach (var c in dc.CusTypes.ToList())
+                {
+                    l.Add(new SelectListItem
+                    {
+                        Value = c.CusTypeID.ToString(),
+                        Text = c.CusTypeName
+                    });
+                }
+            }
+            return l;
+        }
+
+        public static IList<SelectListItem> GetSLIRoom(this HtmlHelper html)
+        {
+            var l = new List<SelectListItem>();
+            using (var dc = new QLKSEntities())
+            {
+                foreach (var c in dc.Rooms.ToList())
+                {
+                    l.Add(new SelectListItem
+                    {
+                        Value = c.RoomID.ToString(),
+                        Text = c.RoomName
+                    });
+                }
+            }
+            return l;
+        }
+
     }
 }

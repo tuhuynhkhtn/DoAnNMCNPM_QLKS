@@ -232,6 +232,21 @@ namespace MVCQLKS.Controllers
             return View("AddCusType");
         }
 
+        public ActionResult AddCus()
+        {
+            var r = new CusInfo
+            {
+                CusNameInfo = "cus",
+                CusTypeIDInfo = 1,
+                CusIDCardInfo = "019890089",
+                CusAddressInfo = "abc",
+                RoomIDInfo = 1,
+                BookRoomInfo = 0
+            };
+            return View(r);
+            //return View();
+        }
+
         // GET: ManageRoom/UpdateRoom
         public ActionResult UpdateRoom(int id)
         {

@@ -185,6 +185,7 @@
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CatInfo.cs" />
+    <Compile Include="Models\CusInfo.cs" />
     <Compile Include="Models\Customer.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
@@ -283,6 +284,7 @@
     <Content Include="Views\ManageRoom\AddCusType.cshtml" />
     <Content Include="Views\ManageRoom\UpdateCusType.cshtml" />
     <Content Include="Views\ManageRoom\QuanLyCus.cshtml" />
+    <Content Include="Views\ManageRoom\AddCus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
