@@ -7,7 +7,7 @@
 }
 
 @section ContentHeaderManageRoom{
-    Cập nhật thông tin loại khách hàng
+    Cập nhật thông tin loại khách 
 }
 
 @section style{
@@ -46,7 +46,7 @@
                 CusTypeNameInfo: "required"
             },
             messages: {
-                CusTypeNameInfo: "Cần nhập tên loại khách hàng"
+                CusTypeNameInfo: "Cần nhập tên loại khách"
             }
         });
     </script>
@@ -74,9 +74,9 @@
                 @Html.HiddenFor(m => m.CusTypeIDInfo)
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.CusTypeNameInfo, "Tên loại khách hàng:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.CusTypeNameInfo, "Tên loại khách:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
-                    @Html.TextBoxFor(m => m.CusTypeNameInfo, new { @class = "form-control", placeholder = "Tên loại khách hàng" })
+                    @Html.TextBoxFor(m => m.CusTypeNameInfo, new { @class = "form-control", placeholder = "Tên loại khách" })
                 </div>
             </div>
             <div class="form-group">

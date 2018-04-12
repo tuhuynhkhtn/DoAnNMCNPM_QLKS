@@ -16,8 +16,10 @@ namespace MVCQLKS.Models
     {
         public int CusID { get; set; }
         public string CusName { get; set; }
-        public string CusType { get; set; }
+        public int CusTypeID { get; set; }
         public int CusIDCard { get; set; }
         public string CusAddress { get; set; }
+        public int RoomID { get; set; }
+        public int BookRoom { get; set; }
     }
 }

@@ -21,9 +21,11 @@
           </Key>
           <Property Name="CusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CusName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CusType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CusTypeID" Type="int" Nullable="false" />
           <Property Name="CusIDCard" Type="int" Nullable="false" />
           <Property Name="CusAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="RoomID" Type="int" Nullable="false" />
+          <Property Name="BookRoom" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CusTypes">
           <Key>
@@ -101,16 +103,6 @@
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CusID" />
-          </Key>
-          <Property Name="CusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CusType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CusIDCard" Type="Int32" Nullable="false" />
-          <Property Name="CusAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -146,12 +138,12 @@
         </EntityType>
         <EntityContainer Name="QLKSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Rooms" EntityType="QLKSModel.Room" />
           <EntitySet Name="CusTypes" EntityType="QLKSModel.CusType" />
+          <EntitySet Name="Customers" EntityType="QLKSModel.Customer" />
         </EntityContainer>
         <EntityType Name="Room">
           <Key>
@@ -173,6 +165,18 @@
           <Property Name="CusTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Coefficient" Type="Double" Nullable="false" />
         </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CusID" />
+          </Key>
+          <Property Name="CusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CusTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CusIDCard" Type="Int32" Nullable="false" />
+          <Property Name="CusAddress" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="BookRoom" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -187,17 +191,6 @@
                 <ScalarProperty Name="CatType" ColumnName="CatType" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="QLKSModel.Customer">
-              <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="CusID" ColumnName="CusID" />
-                <ScalarProperty Name="CusName" ColumnName="CusName" />
-                <ScalarProperty Name="CusType" ColumnName="CusType" />
-                <ScalarProperty Name="CusIDCard" ColumnName="CusIDCard" />
-                <ScalarProperty Name="CusAddress" ColumnName="CusAddress" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -255,6 +248,19 @@
                 <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
                 <ScalarProperty Name="CusTypeName" ColumnName="CusTypeName" />
                 <ScalarProperty Name="CusTypeID" ColumnName="CusTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="QLKSModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="BookRoom" ColumnName="BookRoom" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="CusAddress" ColumnName="CusAddress" />
+                <ScalarProperty Name="CusIDCard" ColumnName="CusIDCard" />
+                <ScalarProperty Name="CusTypeID" ColumnName="CusTypeID" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

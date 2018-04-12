@@ -76,12 +76,13 @@ else
                     <tr>
                         <th id="CanhGiua">STT</th>
                         <th id="CanhPhai">Phòng</th>
-                        <th id="CanhPhaiLoai">Loại phòng</th>
+                        <th id="CanhGiua">Loại phòng</th>
                         <th id="CanhPhai">Đơn giá</th>
                         <th id="CanhPhai">Tình trạng</th>
                         <th id="CanhGiua">Số khách tối đa</th>
-                        <th id="CanhGiua">Ghi chú</th>
-                        <th>&nbsp;</th>
+                        <th id="CanhPhai">Ghi chú</th>
+                        <th id="CanhGiua">Xóa</th>
+                        <th id="CanhGiua">Cập nhật</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,7 +95,7 @@ else
                         <tr>
                             <td id="CanhGiua">@stt</td>
                             <td id="CanhPhai">@p.RoomName</td>
-                            <td id="CanhGiuaLoai">@p.RoomType</td>
+                            <td id="CanhGiua">@p.RoomType</td>
                             <td id="CanhPhai">@string.Format("{0:N0} đ", @p.Price)</td>
                             <td id="CanhPhai">
                                 @if (@p.Status > 0)
@@ -107,12 +108,14 @@ else
                                 }
                             </td>
                             <td id="CanhGiua">@p.MaximumCus</td>
-                            <td id="CanhGiua">@p.Note</td>
-                            <td>
+                            <td id="CanhPhai">@p.Note</td>
+                            <td id="CanhGiua">
                                 <a name="aDelete" class="btn btn-danger btn-xs" href="javascript:void;" title="Xóa" data-id="@p.RoomID">
                                     @*<i class="fa fa-close"></i>*@
                                     <i class="fas fa-times"></i>
                                 </a>
+                            </td>
+                            <td id="CanhGiua">
                                 <a name="aUpdate" class="btn btn-success btn-xs" href="javascript:void;" title="Cập nhật" data-id="@p.RoomID">
                                     <i class="fa fa-check"></i>
                                 </a>

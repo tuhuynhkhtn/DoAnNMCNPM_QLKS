@@ -124,5 +124,45 @@ namespace MVCQLKS.Ultilities
             return gia;
         }
 
+        //public static string GetUserName(this HtmlHelper html)
+        //{
+        //    var ui = HttpContext.Current.Session["Logged"] as UserInfo;
+        //    if (ui != null)
+        //    {
+        //        return ui.UserName;
+        //    }
+        //    return "";
+        //}
+
+        public static string GetCusTypeName(this HtmlHelper html, int id)
+        {
+            string name = "";
+            using (var dc = new QLKSEntities())
+            {
+                var ct = dc.CusTypes.Where(c => c.CusTypeID == id).FirstOrDefault();
+                if (ct != null)
+                {
+                    name = ct.CusTypeName;
+                    return name;
+                }
+            }
+            return name;
+        }
+
+        public static string GetRoomName(this HtmlHelper html, int id)
+        {
+            string name = "";
+            using (var dc = new QLKSEntities())
+            {
+                var r = dc.Rooms.Where(c => c.RoomID == id).FirstOrDefault();
+                if (r != null)
+                {
+                    name = r.RoomName;
+                    return name;
+                }
+            }
+            return name;
+        }
+
     }
 }

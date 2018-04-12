@@ -280,6 +280,9 @@
     <Content Include="Views\ManageRoom\UpdateCat.cshtml" />
     <Content Include="Views\Room\ListTimKiem.cshtml" />
     <Content Include="Views\ManageRoom\QuanLyCusType.cshtml" />
+    <Content Include="Views\ManageRoom\AddCusType.cshtml" />
+    <Content Include="Views\ManageRoom\UpdateCusType.cshtml" />
+    <Content Include="Views\ManageRoom\QuanLyCus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

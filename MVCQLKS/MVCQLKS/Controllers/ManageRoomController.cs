@@ -48,6 +48,15 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        public ActionResult QuanLyCus()
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var l = dc.Customers.ToList();
+                return View(l);
+            }
+        }
+
         // GET: ManageRoom/DeleteRoom
         public ActionResult DeleteRoom(int id)
         {
