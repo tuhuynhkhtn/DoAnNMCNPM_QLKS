@@ -101,6 +101,20 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        public ActionResult DeleteCus(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cD = dc.Customers.Where(c => c.CusID == id).FirstOrDefault();
+                if (cD != null)
+                {
+                    dc.Customers.Remove(cD);
+                    dc.SaveChanges();
+                }
+                return RedirectToAction("QuanLyCus");
+            }
+        }
+
         // GET: ManageRoom/AddRoom
         public ActionResult AddRoom()
         {
@@ -425,6 +439,58 @@ namespace MVCQLKS.Controllers
                 }
             }
             return View("UpdateCusType");
+        }
+
+        public ActionResult UpdateCus(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cU = dc.Customers.Where(c => c.CusID == id).FirstOrDefault();
+                var r = new CusInfo
+                {
+                    CusIDInfo = cU.CusID,
+                    CusNameInfo = cU.CusName,
+                    CusTypeIDInfo = cU.CusTypeID,
+                    CusIDCardInfo = cU.CusIDCard,
+                    CusAddressInfo = cU.CusAddress,
+                    RoomIDInfo = cU.RoomID,
+                    BookRoomInfo = cU.BookRoom
+                };
+                return View(r);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UpdateInfoCus(CusInfo cus)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                // Kiểm tra ID khách hàng nhập vào có tồn tại không
+                var cU = dc.Customers.Where(c => c.CusID == cus.CusIDInfo).FirstOrDefault();
+                if (cU != null)
+                {
+                    cU.CusName = cus.CusNameInfo;
+                    cU.CusTypeID = cus.CusTypeIDInfo;
+                    cU.CusIDCard = cus.CusIDCardInfo;
+                    cU.CusAddress = cus.CusAddressInfo;
+                    cU.RoomID = cus.RoomIDInfo;
+                    cU.BookRoom = cus.BookRoomInfo;
+
+                    //Kiểm tra CMND nhập vào có bị trùng không
+                    var a = dc.Customers.Where(c => c.CusIDCard == cU.CusIDCard && c.CusID != cU.CusID).FirstOrDefault();
+                    if (a != null)
+                    {
+                        ViewBag.ErrorMsg = "CMND đã tồn tại";
+                    }
+                    else
+                    {
+                        dc.Entry(cU).State = EntityState.Modified;
+                        dc.SaveChanges();
+                        return RedirectToAction("QuanLyCus");
+                    }
+                }
+            }
+            return View("UpdateCus");
         }
 
 

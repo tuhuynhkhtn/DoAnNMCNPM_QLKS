@@ -285,6 +285,7 @@
     <Content Include="Views\ManageRoom\UpdateCusType.cshtml" />
     <Content Include="Views\ManageRoom\QuanLyCus.cshtml" />
     <Content Include="Views\ManageRoom\AddCus.cshtml" />
+    <Content Include="Views\ManageRoom\UpdateCus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
