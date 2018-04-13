@@ -217,7 +217,6 @@ namespace MVCQLKS.Controllers
                 }
                 else
                 {
-                    //var gia = Ulti.GetCatPrice(room.CatIDInfo);
                     var r = new CusType
                     {
                         CusTypeName = custype.CusTypeNameInfo,
@@ -245,6 +244,37 @@ namespace MVCQLKS.Controllers
             };
             return View(r);
             //return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCus(CusInfo cus)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cusTonTai = dc.Customers.Where(m => m.CusIDCard == cus.CusIDCardInfo).FirstOrDefault();
+                if (cusTonTai != null)
+                {
+                    ViewBag.ErrorMsg = "CMND đã tồn tại";
+                }
+                else
+                {
+                    //var gia = Ulti.GetCatPrice(room.CatIDInfo);
+                    var r = new Customer
+                    {
+                        CusName = cus.CusNameInfo,
+                        CusTypeID = cus.CusTypeIDInfo,
+                        CusIDCard = cus.CusIDCardInfo,
+                        CusAddress = cus.CusAddressInfo,
+                        RoomID = cus.RoomIDInfo,
+                        BookRoom = cus.BookRoomInfo
+                    };
+
+                    dc.Customers.Add(r);
+                    dc.SaveChanges();
+                    return RedirectToAction("QuanLyCus");
+                }
+            }
+            return View("AddCus");
         }
 
         // GET: ManageRoom/UpdateRoom

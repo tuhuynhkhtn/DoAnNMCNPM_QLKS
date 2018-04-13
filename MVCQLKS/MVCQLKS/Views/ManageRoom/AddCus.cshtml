@@ -40,21 +40,31 @@
         });
         $("#frmAdd").validate({
             rules: {
-                CusNameInfo: "required",
+                CusNameInfo: {
+                    required: true,
+                    maxlength: 50
+                },
                 CusIDCardInfo: {
                     required: true,
                     minlength: 9,
+                    digits: true,
+                    min: 1
                 },
                 CusAddressInfo: {
                     required: true,
-                    minlength: 25,
+                    minlength: 1,
                 },
             },
             messages: {
-                CusNameInfo: "Cần nhập họ tên khách hàng",
+                CusNameInfo: {
+                    required: "Cần nhập họ tên khách hàng",
+                    maxlength: "Họ tên có độ dài tối đa 48 ký tự"
+                },
                 CusIDCardInfo: {
                     required: "Cần nhập CMND",
-                    minlength: "CMND ít nhất 9 kí tự"
+                    minlength: "CMND ít nhất 9 số",
+                    digits: "CMND phải là số",
+                    min: "CMND phải lớn hơn hoặc bằng 1"
                 },
                 CusAddressInfo: {
                     required: "Cần nhập địa chỉ",
