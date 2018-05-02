@@ -14,5 +14,7 @@ namespace MVCQLKS.Models
         public string ConfirmPassword { get; set; }
 
         public string Name { get; set; }
+
+        public string CaptchaCode { get; set; }
     }
 }

@@ -19,7 +19,7 @@
 @section script{
     <script src="~/Content/js/jquery.validate.min.js"></script>
     <script type="text/javascript">
-        $("#frmProfile").validate({
+        $("#frmUpProfile").validate({
             rules: {
                 UserName: "required",
                 Name: "required",
@@ -37,7 +37,7 @@
 }
 
 <div class="row">
-    @using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @class = "form-horizontal", id = "frmProfile" }))
+    @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { @class = "form-horizontal", id = "frmUpProfile" }))
     {
         <div class="form-group">
             @Html.HiddenFor(m => m.UserID)
@@ -64,3 +64,4 @@
         </div>
     }
 </div>
+

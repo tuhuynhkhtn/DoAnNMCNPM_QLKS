@@ -77,6 +77,90 @@ namespace MVCQLKS.Ultilities
             return "";
         }
 
+        public static bool CheckEmpty(UserRegisting Reg)
+        {
+            if (Reg.UserName == null || Reg.Password == null || Reg.ConfirmPassword == null || Reg.CaptchaCode == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //Check username exist
+        public static bool UserNameExist(string Username)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var _username = dc.Users.Where(u => u.f_UserName == Username).FirstOrDefault();
+
+                if (_username != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static RegisterError GetErrorNullRegisting(UserRegisting Reg)
+        {
+            //Empty
+            if (CheckEmpty(Reg) == true)
+            {
+                RegisterError reErr = new RegisterError();
+                if (Reg.UserName == null)
+                {
+                    reErr.ErrorUserName = "Bạn cần nhập UserName!";
+                }
+                else if (Reg.UserName != null)
+                {
+                    bool b = UserNameExist(Reg.UserName);
+                    if (b == true)
+                    {
+                        reErr.ErrorUserName = "UserName đã tồn tại!";
+                    }
+                }
+
+                if (Reg.Password == null)
+                {
+                    reErr.ErrorPassword = "Bạn cần nhập Mật khẩu!";
+                }
+
+                if (Reg.ConfirmPassword == null)
+                {
+                    reErr.ErrorConfirmPassword = "Nhập lại Mật khẩu!";
+                }
+
+                else if (Reg.ConfirmPassword != null && Reg.Password != null)
+                {
+                    if (Reg.ConfirmPassword != Reg.Password)
+                    {
+                        reErr.ErrorConfirmPassword = "Nhập lại không đúng!";
+                    }
+                }
+
+                if (Reg.Name == null)
+                {
+                    reErr.ErrorName = "Bạn cần nhập Họ tên!";
+                }
+
+                if (Reg.CaptchaCode == null)
+                {
+                    reErr.ErrorCaptcha = "Bạn cần nhập Captcha để xác nhận!";
+                }
+                return reErr;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static UserInfo GetUserInfo(this HtmlHelper html)
+        {
+            var ui = HttpContext.Current.Session["Logged"] as UserInfo;
+            return ui;
+        }
+
         public static IList<SelectListItem> GetSLICat(this HtmlHelper html)
         {
             var l = new List<SelectListItem>();
@@ -197,6 +281,5 @@ namespace MVCQLKS.Ultilities
             }
             return l;
         }
-
     }
 }

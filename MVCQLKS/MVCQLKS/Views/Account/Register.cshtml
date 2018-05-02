@@ -1,15 +1,49 @@
 ﻿@using MVCQLKS.Models
-@using BotDetect.Web.Mvc;
+@using BotDetect.Web.Mvc
 
 @model UserRegisting
 
 @section style{
     <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
     <style type="text/css">
         .error {
             color: red;
         }
+
+        label {
+            font-weight: bold;
+        }
     </style>
+}
+
+@section script{
+    <script src="~/Content/js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $("#frmRegister").validate({
+            rules: {
+                UserName: "required",
+                Password: {
+                    required: true,
+                    minlength: 4
+                },
+                ConfirmPassword: {
+                    required: true,
+                },
+                Name: "required",
+            },
+            messages: {
+                UserName: "Bạn cần điền Tên Đăng nhập!",
+                Password: {
+                    required: "Bạn cần điền Mật khẩu!",
+                    minlength: "Mật khẩu phải ít nhất 4 ký tự!"
+                },
+                ConfirmPassword: "Bạn cần xác nhận lại Mật khẩu!",
+                Name: "Bạn cần nhập Họ và tên!"
+            }
+        });
+    </script>
+
 }
 
 @section ContentHeader{
@@ -27,77 +61,49 @@
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", id = "frmRegister" }))
     {
         <div class="control-group">
-            @Html.LabelFor(m => m.UserName, "Tên Đăng nhập:", new { @class = "col-md-3 control-label" })
-            <div class="col-sm-8 form-control-static">
+            @Html.LabelFor(m => m.UserName, "Tên Đăng nhập:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
                 @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username" })
             </div>
         </div>
         <div class="control-group">
-            @Html.LabelFor(m => m.Password, "Mật khẩu:", new { @class = "col-md-3 control-label" })
-            <div class="col-sm-8 form-control-static">
+            @Html.LabelFor(m => m.Password, "Mật khẩu:", new { @class = "col-sm-4 control-label", id = "Pass" })
+            <div class="col-md-6 form-control-static">
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
             </div>
         </div>
         <div class="control-group">
-            @Html.LabelFor(m => m.ConfirmPassword, "Nhập lại Mật khẩu:", new { @class = "col-md-3 control-label" })
-            <div class="col-sm-8 form-control-static">
+            @Html.LabelFor(m => m.ConfirmPassword, "Nhập lại Mật khẩu:", new { @class = "col-sm-4 control-label", id = "passConfirm" })
+            <div class="col-md-6 form-control-static">
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm" })
             </div>
         </div>
         <div class="control-group">
-            @Html.LabelFor(m => m.Name, "Họ tên:", new { @class = "col-md-3 control-label" })
-            <div class="col-sm-8 form-control-static">
+            @Html.LabelFor(m => m.Name, "Họ và tên:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-7">
+            <div class="col-sm-offset-4 col-md-6">
                 @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha"); }
                 @Html.Captcha(exampleCaptcha)
 
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="CaptchaCode">Captcha:</label>
-            <div class="col-sm-7">
+            <label class="col-sm-4 control-label" for="CaptchaCode">Captcha:</label>
+            <div class="col-md-6">
                 @Html.TextBox("CaptchaCode")
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-offset-7 form-control-static">
+            <div class="col-sm-offset-4 col-md-6 form-control-static">
                 <button type="submit" class="btn btn-success">
                     <i class="fa fa-check"></i>
-                    Sign up
+                    Đăng ký
                 </button>
             </div>
         </div>
     }
 </div>
-
-@section script{
-    <script src="~/Content/js/jquery.validate.min.js"></script>
-    <script type="text/javascript">
-        $("#frmRegister").validate({
-            rules: {
-                UserName: "required",
-                Password: {
-                    required: true,
-                    minlength: 4
-                },
-                ConfirmPassword: "required",
-                Name: "required",
-            },
-            messages: {
-                UserName: "Bạn cần điền Tên Đăng nhập!",
-                Password: {
-                    required: "Bạn cần điền Mật khẩu!",
-                    minlength: "Mật khẩu phải ít nhất 4 ký tự!"
-                },
-                ConfirmPassword: "Bạn cần xác nhận lại Mật khẩu!",
-                Name: "Bạn cần nhập Họ và tên!"
-            }
-        });
-    </script>
-}
-
-

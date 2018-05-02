@@ -3,7 +3,9 @@ using MVCQLKS.Models;
 using MVCQLKS.Ultilities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -62,8 +64,8 @@ namespace MVCQLKS.Controllers
         public ActionResult Register()
         {
             return View();
-        } 
-        
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [CaptchaValidation("CaptchaCode", "ExampleCaptcha", "Incorrect CAPTCHA code!")]
@@ -73,24 +75,33 @@ namespace MVCQLKS.Controllers
             if (!ModelState.IsValid)
             {
                 // TODO: Captcha validation failed, show error message
-                ViewBag.ErrorMsg = "Captcha chưa đúng!";
+                ViewBag.ErrorMsg = "Captcha không hợp lệ!";
             }
             else
             {
-                var u = new User
-                {
-                    f_UserName = user.UserName,
-                    f_Password = Ulti.Md5Hash(user.Password),
-                    f_Name = user.Name
-                };
                 using (var dc = new QLKSEntities())
                 {
-                    dc.Users.Add(u);
-                    dc.SaveChanges();
+                    var userTonTai = dc.Users.Where(us => us.f_UserName == user.UserName).FirstOrDefault();
+                    if (userTonTai != null)
+                    {
+                        ViewBag.ErrorMsg = "Tên đăng nhập đã tồn tại!";
+                    }
+                    else
+                    {
+                        var u = new User
+                        {
+                            f_UserName = user.UserName,
+                            f_Password = Ulti.Md5Hash(user.Password),
+                            f_Name = user.Name
+                        };
+                        dc.Users.Add(u);
+                        dc.SaveChanges();
+
+                        var ui = new UserInfo { UserName = u.f_UserName };
+                        Session["Logged"] = ui;
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
-                var ui = new UserInfo { UserName = u.f_UserName };
-                Session["Logged"] = ui;
-                return RedirectToAction("Index", "Home");
             }
             return View();
         }
@@ -99,12 +110,50 @@ namespace MVCQLKS.Controllers
 
         public ActionResult Profile()
         {
-            /*if (Session["Logged"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }*/
             var ui = Session["Logged"] as UserInfo;
-            return View(ui);
+            using (var dc = new QLKSEntities())
+            {
+                var u = dc.Users.Where(m => m.f_Name == ui.UserName).FirstOrDefault();
+                if (u != null)
+                {
+                    var a = new UserInfo
+                    {
+                        UserID = u.f_ID,
+                        UserName = u.f_Name,
+                        Name = u.f_Name,
+                    };
+                    return View(a);
+                }
+                return View(ui);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProfile(UserInfo user)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var u = dc.Users.Where(m => m.f_ID == user.UserID).FirstOrDefault();
+                if (u != null)
+                {
+                    u.f_UserName = user.UserName;
+                    u.f_Name = user.Name;
+
+                    var a = dc.Users.Where(m => m.f_UserName == u.f_UserName).FirstOrDefault();
+                    if (a != null)
+                    {
+                        ViewBag.ErrorMsg = "Tên đăng nhập đã tồn tại!";
+                    }
+                    else
+                    {
+                        dc.Entry(u).State = EntityState.Modified;
+                        dc.SaveChanges();
+                        Session["Logged"] = null;
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+            }
+            return View("Profile");
         }
     }
 }
