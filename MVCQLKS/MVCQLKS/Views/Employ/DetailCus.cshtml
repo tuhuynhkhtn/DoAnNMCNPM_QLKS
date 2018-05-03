@@ -1,0 +1,53 @@
+﻿@model MVCQLKS.Models.Customer
+
+@section ContentHeader{
+    Chi tiết thông tin Khách hàng @Model.CusName
+}
+
+<style>
+    table {
+        padding: 100px;
+    }
+    td {
+        padding-left: 150px;
+        padding-right: 100px;
+    }
+</style>
+
+<div class="row">
+    @using (Html.BeginForm("CustomerList", "Customer", FormMethod.Post, new { @class = "form-horizontal", id = "frmCustomer" }))
+    {
+        <table class="table table-condensed">
+            <tr>
+                <th>ID:</th>
+                <td>@Model.CusID</td>
+            </tr>
+            <tr>
+                <th>Họ và tên:</th>
+                <td>@Model.CusName</td>
+            </tr>
+            <tr>
+                <th>Loại khách:</th>
+                <td>@Model.CusTypeID</td>
+            </tr>
+            <tr>
+                <th>Số CMND:</th>
+                <td>@Model.CusIDCard</td>
+            </tr>
+            <tr>
+                <th>Địa chỉ:</th>
+                <td>@Model.CusAddress</td>
+            </tr>
+            <tr>
+                <th>Ở phòng:</th>
+                <td>@Model.RoomID</td>
+            </tr>
+            <tr>
+                <th>Số phòng đặt:</th>
+                <td>@Model.BookRoom</td>
+            </tr>
+        </table>
+        <div class="text-center">@Html.ActionLink("Quay lại", "CustomerList")</div>
+    }
+</div>
+

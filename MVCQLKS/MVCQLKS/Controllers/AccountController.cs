@@ -57,7 +57,7 @@ namespace MVCQLKS.Controllers
             Session["Logged"] = null;
             Response.Cookies["UserId"].Expires = DateTime.Now.AddDays(-1);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         // GET: Account/Register

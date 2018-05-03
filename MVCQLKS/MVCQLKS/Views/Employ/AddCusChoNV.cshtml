@@ -1,0 +1,53 @@
+﻿@model MVCQLKS.Models.Customer
+
+@section ContentHeader{
+    Thêm khách hàng
+}
+
+<div class="row">
+    @using (Html.BeginForm("AddCusChoNV", "Employ", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd" }))
+    {
+        <div class="control-group">
+            @Html.LabelFor(m => m.CusName, "Họ và tên:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
+                @Html.TextBoxFor(m => m.CusName, new { @class = "form-control", placeholder = "Name" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.CusTypeID, "Loại khách:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
+                @Html.TextBoxFor(m => m.CusTypeID, new { @class = "form-control", placeholder = "Type" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.CusIDCard, "Số CMND:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
+                @Html.TextBoxFor(m => m.CusIDCard, new { @class = "form-control", placeholder = "ID Card" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.CusAddress, "Địa chỉ:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
+                @Html.TextBoxFor(m => m.CusAddress, new { @class = "form-control", placeholder = "Address" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.RoomID, "Ở phòng:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
+                @Html.TextBoxFor(m => m.RoomID, new { @class = "form-control", placeholder = "Room" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.BookRoom, "Số phòng đặt:", new { @class = "col-sm-4 control-label" })
+            <div class="col-md-6 form-control-static">
+                @Html.TextBoxFor(m => m.BookRoom, new { @class = "form-control", placeholder = "Book room" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-md-6 form-control-static">
+                <input type="submit" class="btn btn-success" value="Thêm khách hàng" />
+            </div>
+        </div>
+    }
+</div>
+
