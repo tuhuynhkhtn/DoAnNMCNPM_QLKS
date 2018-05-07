@@ -4,10 +4,10 @@
 
 @{
     ViewBag.Title = "AddCus";
-    Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section ContentHeaderManageRoom{
+@section ContentHeader{
     Thêm mới khách hàng
 }
 
@@ -85,7 +85,7 @@
             //<p class="error">@ViewBag.ErrorMsg</p>
             //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
         }
-        @using (Html.BeginForm("AddCus", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddCusBookRoom", "Employ", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
                 @Html.LabelFor(m => m.CusNameInfo, "Họ tên:", new { @class = "col-sm-2 control-label" })
@@ -106,28 +106,6 @@
                 @Html.LabelFor(m => m.CusAddressInfo, "Địa chỉ:", new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-4">
                     @Html.TextBoxFor(m => m.CusAddressInfo, new { @class = "form-control", placeholder = "Địa chỉ" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(m => m.RoomIDInfo, "Phòng:", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-4">
-                    @Html.DropDownListFor(m => m.RoomIDInfo, Html.GetSLIRoom(), new { @class = "form-control selectpicker", placeholder = "phòng" })
-                </div>
-                @Html.LabelFor(m => m.BookRoomInfo, "Là người đặt phòng:", new { @class = "col-sm-2 control-label" })
-                <div class="col-sm-4">
-                    @*@Html.TextBoxFor(m => m.StatusInfo, new { @class = "form-control", placeholder = "Tình trạng" })*@
-
-                    @Html.DropDownListFor(m => m.BookRoomInfo, new List<SelectListItem>() {
-                    new SelectListItem() {
-                        Text = "Có",
-                        Value = "1"
-                    },
-                    new SelectListItem() {
-                        Text = "Không",
-                        Value = "0"
-                    },
-                }, new { @class = "form-control selectpicker" })
                 </div>
             </div>
 

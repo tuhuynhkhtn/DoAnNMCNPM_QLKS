@@ -16,6 +16,146 @@ namespace MVCQLKS.Views
         //    return View();
         //}
 
+        // GET: ManageRoom/QuanLyCusBookRoom
+        public ActionResult QuanLyCusBookRoom()
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var l = dc.Customers.Where(c => c.BookRoom == 1).ToList();
+                return View(l);
+            }
+        }
+
+        // GET: ManageRoom/QuanLyCusChoNV
+        public ActionResult QuanLyCusChoNV()
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var l = dc.Customers.ToList();
+                return View(l);
+            }
+        }
+
+        public ActionResult DeleteCusBookRoom(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cD = dc.Customers.Where(c => c.CusID == id).FirstOrDefault();
+                if (cD != null)
+                {
+                    dc.Customers.Remove(cD);
+                    dc.SaveChanges();
+                }
+                return RedirectToAction("QuanLyCusBookRoom");
+            }
+        }
+
+        public ActionResult DeleteCus(int id)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cD = dc.Customers.Where(c => c.CusID == id).FirstOrDefault();
+                if (cD != null)
+                {
+                    dc.Customers.Remove(cD);
+                    dc.SaveChanges();
+                }
+                return RedirectToAction("QuanLyCusChoNV");
+            }
+        }
+
+        public ActionResult AddCusBookRoom()
+        {
+            //var r = new CusInfo
+            //{
+            //    CusNameInfo = "cus",
+            //    CusTypeIDInfo = 1,
+            //    CusIDCardInfo = "019890089",
+            //    CusAddressInfo = "abc",
+            //    //RoomIDInfo = ' ',
+            //    BookRoomInfo = 1
+            //};
+            //return View(r);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCusBookRoom(CusInfo cus)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cusTonTai = dc.Customers.Where(m => m.CusIDCard == cus.CusIDCardInfo).FirstOrDefault();
+                if (cusTonTai != null)
+                {
+                    ViewBag.ErrorMsg = "CMND đã tồn tại";
+                }
+                else
+                {
+                    //var gia = Ulti.GetCatPrice(room.CatIDInfo);
+                    var r = new Customer
+                    {
+                        CusName = cus.CusNameInfo,
+                        CusTypeID = cus.CusTypeIDInfo,
+                        CusIDCard = cus.CusIDCardInfo,
+                        CusAddress = cus.CusAddressInfo,
+                        RoomID = 0,
+                        BookRoom = 1
+                    };
+
+                    dc.Customers.Add(r);
+                    dc.SaveChanges();
+                    return RedirectToAction("QuanLyCusBookRoom");
+                }
+            }
+            return View("AddCus");
+        }
+
+        public ActionResult AddCus()
+        {
+            var r = new CusInfo
+            {
+                CusNameInfo = "cus",
+                CusTypeIDInfo = 1,
+                CusIDCardInfo = "019890089",
+                CusAddressInfo = "abc",
+                RoomIDInfo = 1,
+                BookRoomInfo = 1
+            };
+            return View(r);
+            //return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCus(CusInfo cus)
+        {
+            using (var dc = new QLKSEntities())
+            {
+                var cusTonTai = dc.Customers.Where(m => m.CusIDCard == cus.CusIDCardInfo).FirstOrDefault();
+                if (cusTonTai != null)
+                {
+                    ViewBag.ErrorMsg = "CMND đã tồn tại";
+                }
+                else
+                {
+                    //var gia = Ulti.GetCatPrice(room.CatIDInfo);
+                    var r = new Customer
+                    {
+                        CusName = cus.CusNameInfo,
+                        CusTypeID = cus.CusTypeIDInfo,
+                        CusIDCard = cus.CusIDCardInfo,
+                        CusAddress = cus.CusAddressInfo,
+                        RoomID = cus.RoomIDInfo,
+                        BookRoom = cus.BookRoomInfo
+                    };
+
+                    dc.Customers.Add(r);
+                    dc.SaveChanges();
+                    return RedirectToAction("QuanLyCusChoNV");
+                }
+            }
+            return View("AddCus");
+        }
+
         //GET: ManageCustomer
         public ActionResult CustomerList()
         {

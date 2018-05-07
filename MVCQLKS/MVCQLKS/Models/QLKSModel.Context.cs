@@ -31,6 +31,7 @@ namespace MVCQLKS.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<CusType> CusTypes { get; set; }
+        public virtual DbSet<Config> Configs { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
     }
 }

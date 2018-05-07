@@ -1,0 +1,123 @@
+﻿@using MVCQLKS.Models
+@using MVCQLKS.Ultilities
+@model IList<Customer>
+
+@{
+    ViewBag.Title = "QuanLyCusBookRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section style{
+    <style type="text/css">
+        #CanhPhai {
+            text-align: right;
+        }
+
+        #CanhGiua {
+            text-align: center;
+            /*width: 90px;*/
+        }
+
+        #CanhGiuaXoaCapNhat {
+            text-align: center;
+            width: 90px;
+        }
+    </style>
+}
+
+@section script{
+    <script type="text/javascript">
+        $('a[name ="aDelete"]').on('click', function () {
+            var pId = ($(this).data('id'));
+            $('#pId').val(pId);
+            $('#frmDelete').submit();
+        });
+
+        $('a[name ="aUpdate"]').on('click', function () {
+            var pId = ($(this).data('id'));
+            //alert(pId);
+            $('#pIdUpdate').val(pId);
+            $('#frmUpdate').submit();
+        });
+    </script>
+}
+
+@section ContentHeader{
+    Danh sách khách hàng đăng ký đặt phòng
+}
+
+@if (Model.Count == 0)
+{
+    @:Không có khách hàng đăng ký đặt phòng
+
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary" href="@Url.Action("AddCusBookRoom","Employ")" title="Thêm mới khách hàng">
+                <i class="fa fa-plus"></i>
+                &nbsp;Thêm mới khách hàng 
+            </a>
+        </div>
+    </div>
+}
+else
+{
+    <form id="frmDelete" method="post" action="@Url.Action("DeleteCusBookRoom", "Employ")">
+        <input id="pId" type="hidden" name="id" />
+    </form>
+    <form id="frmUpdate" method="post" action="@Url.Action("UpdateCusBookRoom", "Employ")">
+        <input id="pIdUpdate" type="hidden" name="id" />
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-headding text-center">
+                <h2>Danh sách khách hàng đăng ký đặt phòng</h2>
+            </div>
+            <table class="table table-striped table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th id="CanhGiua">STT</th>
+                        <th>Họ tên</th>
+                        <th>Loại khách</th>
+                        <th>CMND</th>
+                        <th>Địa chỉ</th>
+                        <th id="CanhGiuaXoaCapNhat">Xóa</th>
+                        <th id="CanhGiuaXoaCapNhat">Cập nhật</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int stt = 0;
+                    }
+                    @foreach (var p in Model)
+                    {
+                        stt++;
+                        <tr>
+                            <td id="CanhGiua">@stt</td>
+                            <td>@p.CusName</td>
+                            <td>@Html.GetCusTypeName(p.CusTypeID)</td>
+                            <td>@p.CusIDCard</td>
+                            <td>@p.CusAddress</td>
+                            <td id="CanhGiuaXoaCapNhat">
+                                <a name="aDelete" class="btn btn-danger btn-xs" href="javascript:void;" title="Xóa" data-id="@p.CusID">
+                                    @*<i class="fa fa-close"></i>*@
+                                    <i class="fas fa-times"></i>
+                                </a>
+                            </td>
+                            <td id="CanhGiuaXoaCapNhat">
+                                <a name="aUpdate" class="btn btn-success btn-xs" href="javascript:void;" title="Cập nhật" data-id="@p.CusID">
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="@Url.Action("AddCusBookRoom","Employ")" title="Thêm mới khách hàng">
+                <i class="fa fa-plus"></i>
+                &nbsp;Thêm mới khách hàng
+            </a>
+        </div>
+    </div>
+                        }
+
+<script defer src="~/Content/js/fontawesome-all.js"></script>

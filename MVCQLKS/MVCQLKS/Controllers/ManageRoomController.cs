@@ -39,6 +39,7 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        // GET: ManageRoom/QuanLyCusType
         public ActionResult QuanLyCusType()
         {
             using (var dc = new QLKSEntities())
@@ -48,6 +49,7 @@ namespace MVCQLKS.Controllers
             }
         }
 
+        // GET: ManageRoom/QuanLyCus
         public ActionResult QuanLyCus()
         {
             using (var dc = new QLKSEntities())

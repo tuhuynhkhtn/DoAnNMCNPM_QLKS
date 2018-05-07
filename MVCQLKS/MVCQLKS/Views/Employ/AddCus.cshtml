@@ -4,10 +4,10 @@
 
 @{
     ViewBag.Title = "AddCus";
-    Layout = "~/Views/Shared/_LayoutManageRoom.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section ContentHeaderManageRoom{
+@section ContentHeader{
     Thêm mới khách hàng
 }
 
@@ -85,7 +85,7 @@
             //<p class="error">@ViewBag.ErrorMsg</p>
             //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
         }
-        @using (Html.BeginForm("AddCus", "ManageRoom", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddCus", "Employ", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
         {
             <div class="form-group">
                 @Html.LabelFor(m => m.CusNameInfo, "Họ tên:", new { @class = "col-sm-2 control-label" })
