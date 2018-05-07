@@ -15,11 +15,12 @@ namespace MVCQLKS.Models
     public partial class OrderDetail
     {
         public int OrderID { get; set; }
-        public int C_RoomID { get; set; }
+        public int RoomID { get; set; }
         public int Quantity { get; set; }
         public int StatusForeignCus { get; set; }
-        public int AdditionalFee { get; set; }
+        public System.DateTime OrderCheckIn { get; set; }
         public System.DateTime OrderCheckOut { get; set; }
+        public int NODOrder { get; set; }
         public decimal Price { get; set; }
         public decimal Amount { get; set; }
     }

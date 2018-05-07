@@ -15,8 +15,8 @@ namespace MVCQLKS.Models
     public partial class Order
     {
         public int OrderID { get; set; }
-        public System.DateTime OrderCheckIn { get; set; }
         public int CusID { get; set; }
         public decimal Total { get; set; }
+        public int StatusPay { get; set; }
     }
 }

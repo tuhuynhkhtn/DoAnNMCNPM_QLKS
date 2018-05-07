@@ -6,13 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="63af0e1878254c7a811faae3b1bf8efb" Name="Diagram1">
         <EntityTypeShape EntityType="QLKSModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLKSModel.OrderDetail" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLKSModel.Order" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLKSModel.User" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.User" Width="1.5" PointX="4.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.Room" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="QLKSModel.CusType" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="QLKSModel.Config" Width="1.5" PointX="6.75" PointY="2.5" />
         <EntityTypeShape EntityType="QLKSModel.Customer" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLKSModel.Order" Width="1.5" PointX="2.75" PointY="3.375" />
+        <EntityTypeShape EntityType="QLKSModel.OrderDetail" Width="1.5" PointX="0.75" PointY="3.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -178,6 +178,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageRoomController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -203,6 +204,8 @@
     <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderDetailInfo.cs" />
+    <Compile Include="Models\OrderInfo.cs" />
     <Compile Include="Models\QLKSModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -302,6 +305,7 @@
     <Content Include="Views\Employ\QuanLyCusChoNV.cshtml" />
     <Content Include="Views\Employ\AddCusBookRoom.cshtml" />
     <Content Include="Views\Employ\AddCus.cshtml" />
+    <Content Include="Views\Order\RegisOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

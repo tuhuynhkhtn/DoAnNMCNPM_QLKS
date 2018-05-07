@@ -46,14 +46,15 @@
         <EntityType Name="OrderDetails">
           <Key>
             <PropertyRef Name="OrderID" />
-            <PropertyRef Name=" RoomID" />
+            <PropertyRef Name="RoomID" />
           </Key>
-          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name=" RoomID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="RoomID" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="StatusForeignCus" Type="int" Nullable="false" />
-          <Property Name="AdditionalFee" Type="int" Nullable="false" />
+          <Property Name="OrderCheckIn" Type="datetime" Nullable="false" />
           <Property Name="OrderCheckOut" Type="datetime" Nullable="false" />
+          <Property Name="NODOrder" Type="int" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
           <Property Name="Amount" Type="money" Nullable="false" />
         </EntityType>
@@ -62,9 +63,9 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="int" Nullable="false" />
-          <Property Name="OrderCheckIn" Type="datetime" Nullable="false" />
           <Property Name="CusID" Type="int" Nullable="false" />
           <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="StatusPay" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Rooms">
           <Key>
@@ -112,29 +113,6 @@
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="OrderDetail">
-          <Key>
-            <PropertyRef Name="OrderID" />
-            <PropertyRef Name="C_RoomID" />
-          </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="C_RoomID" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="StatusForeignCus" Type="Int32" Nullable="false" />
-          <Property Name="AdditionalFee" Type="Int32" Nullable="false" />
-          <Property Name="OrderCheckOut" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Order">
-          <Key>
-            <PropertyRef Name="OrderID" />
-          </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" />
-          <Property Name="OrderCheckIn" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CusID" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="f_ID" />
@@ -147,13 +125,13 @@
         </EntityType>
         <EntityContainer Name="QLKSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Rooms" EntityType="QLKSModel.Room" />
           <EntitySet Name="CusTypes" EntityType="QLKSModel.CusType" />
           <EntitySet Name="Configs" EntityType="QLKSModel.Config" />
           <EntitySet Name="Customers" EntityType="QLKSModel.Customer" />
+          <EntitySet Name="Orders" EntityType="QLKSModel.Order" />
+          <EntitySet Name="OrderDetails" EntityType="QLKSModel.OrderDetail" />
         </EntityContainer>
         <EntityType Name="Room">
           <Key>
@@ -195,6 +173,30 @@
           <Property Name="RoomID" Type="Int32" />
           <Property Name="BookRoom" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CusID" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="StatusPay" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="RoomID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="StatusForeignCus" Type="Int32" Nullable="false" />
+          <Property Name="OrderCheckIn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderCheckOut" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NODOrder" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -209,30 +211,6 @@
                 <ScalarProperty Name="CatType" ColumnName="CatType" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="QLKSModel.OrderDetail">
-              <MappingFragment StoreEntitySet="OrderDetails">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="C_RoomID" ColumnName=" RoomID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="StatusForeignCus" ColumnName="StatusForeignCus" />
-                <ScalarProperty Name="AdditionalFee" ColumnName="AdditionalFee" />
-                <ScalarProperty Name="OrderCheckOut" ColumnName="OrderCheckOut" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="QLKSModel.Order">
-              <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="OrderCheckIn" ColumnName="OrderCheckIn" />
-                <ScalarProperty Name="CusID" ColumnName="CusID" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -288,6 +266,31 @@
                 <ScalarProperty Name="CusTypeID" ColumnName="CusTypeID" />
                 <ScalarProperty Name="CusName" ColumnName="CusName" />
                 <ScalarProperty Name="CusID" ColumnName="CusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="QLKSModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="StatusPay" ColumnName="StatusPay" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="QLKSModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="NODOrder" ColumnName="NODOrder" />
+                <ScalarProperty Name="OrderCheckOut" ColumnName="OrderCheckOut" />
+                <ScalarProperty Name="OrderCheckIn" ColumnName="OrderCheckIn" />
+                <ScalarProperty Name="StatusForeignCus" ColumnName="StatusForeignCus" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
