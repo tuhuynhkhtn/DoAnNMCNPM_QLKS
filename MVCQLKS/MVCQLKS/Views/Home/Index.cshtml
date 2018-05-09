@@ -1,28 +1,32 @@
-﻿@*@section ContentHeader{
-    Index
-}
-
-<h2>Content</h2>*@
-@using MVCQLKS.Models
+﻿@using MVCQLKS.Models
+@using MVCQLKS.Ultilities
 @model IList<Room>
 @section ContentHeader{
     Trang chủ
 }
 <div class="col-ms-12">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            6 phòng còn trống         
+    @if (Html.IsLogged() == false)
+    {
+        <h2>Vui lòng đăng nhập để sử dụng</h2>
+    }
+    else
+    {
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                6 phòng còn trống
+            </div>
+            <div class="panel-body">
+                @Html.Action("HienThi6PhongConTrong", "Home")
+            </div>
         </div>
-        <div class="panel-body">
-            @Html.Action("HienThi6PhongConTrong", "Home")
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                6 phòng đã cho thuê
+            </div>
+            <div class="panel-body">
+                @Html.Action("HienThi6PhongDaChoThue", "Home")
+            </div>
         </div>
-    </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-           6 phòng đã cho thuê
-        </div>
-        <div class="panel-body">
-            @Html.Action("HienThi6PhongDaChoThue", "Home")
-        </div>
-    </div>
+    }
+
 </div>

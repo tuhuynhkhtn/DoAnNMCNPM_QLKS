@@ -174,7 +174,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageRoomController.cs" />
@@ -294,17 +293,12 @@
     <Content Include="Views\ManageRoom\QuanLyCus.cshtml" />
     <Content Include="Views\ManageRoom\AddCus.cshtml" />
     <Content Include="Views\ManageRoom\UpdateCus.cshtml" />
-    <Content Include="Views\Employ\AddCusChoNV.cshtml" />
-    <Content Include="Views\Employ\CustomerList.cshtml" />
-    <Content Include="Views\Employ\DetailCus.cshtml" />
-    <Content Include="Views\Employ\EditCusChoNV.cshtml" />
-    <Content Include="Views\Admin\IndexAdmin.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_ViewStartAdmin.cshtml" />
     <Content Include="Views\Employ\QuanLyCusBookRoom.cshtml" />
     <Content Include="Views\Employ\QuanLyCusChoNV.cshtml" />
     <Content Include="Views\Employ\AddCusBookRoom.cshtml" />
-    <Content Include="Views\Employ\AddCus.cshtml" />
+    <Content Include="Views\Employ\AddCusChoNV.cshtml" />
     <Content Include="Views\Order\RegisOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
