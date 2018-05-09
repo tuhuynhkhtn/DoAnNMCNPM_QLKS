@@ -46,9 +46,9 @@
         <EntityType Name="OrderDetails">
           <Key>
             <PropertyRef Name="OrderID" />
-            <PropertyRef Name="RoomID" />
           </Key>
           <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CusID" Type="int" Nullable="false" />
           <Property Name="RoomID" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="StatusForeignCus" Type="int" Nullable="false" />
@@ -185,9 +185,9 @@
         <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="OrderID" />
-            <PropertyRef Name="RoomID" />
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CusID" Type="Int32" Nullable="false" />
           <Property Name="RoomID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="StatusForeignCus" Type="Int32" Nullable="false" />
@@ -290,6 +290,7 @@
                 <ScalarProperty Name="StatusForeignCus" ColumnName="StatusForeignCus" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="CusID" ColumnName="CusID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>

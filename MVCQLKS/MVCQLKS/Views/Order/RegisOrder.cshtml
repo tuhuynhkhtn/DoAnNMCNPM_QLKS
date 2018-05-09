@@ -67,8 +67,15 @@
                 }
             }
         });
-        $('a[name ="aAdd"]').on('click', function () {
-            $("#roomtype option:selected").text();
+        //$('a[name ="aAdd"]').on('click', function () {
+        //    $("#roomtype option:selected").text();
+        //});
+
+        $('a[name="aAdd"]').on('click', function () {
+            //alert(1);
+            //var pId = ($(this).data('id'));
+            $('#Id').val(@ViewBag.IdPhong);
+            //$('#frmAddNSXI').submit();
         });
     </script>
 
@@ -80,31 +87,44 @@
         {
             <div class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                @ViewBag.ErrorMsg
+                @ViewBag.ErrorMsg 
             </div>
             //<p class="error">@ViewBag.ErrorMsg</p>
             //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
         }
-        @using (Html.BeginForm("AddCusChoNV", "Employ", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
-        {
-            <div class="panel-headding text-center">
-                <h2>Phiếu đăng ký thuê phòng @ViewBag.TenPhong</h2>
-            </div>
+
+        <form action="@Url.Action("KiemTraCMNDDatPhong", "Order")" method="post" id = "frmAdd">
+            <input type="hidden" id="Id" name="Id" value="@ViewBag.IdPhong" />        
             <div class="form-group">
-                @Html.LabelFor(m => m.CusIDCardInfo, "CMND đặt phòng:", new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.CusIDCardInfo, "CMND đặt phòng:", new { @class = "col-sm-2 control-label", name = "Cmnd" })
                 <div class="col-sm-4">
-                    @Html.TextBoxFor(m => m.CusNameInfo, new { @class = "form-control", placeholder = "CMND đặt phòng" })
+                    @Html.TextBoxFor(m => m.CusIDCardInfo, new { @class = "form-control", placeholder = "CMND đặt phòng", name = "Cmnd" })
+
+                    @if (ViewBag.ErrorMsg != null)
+                    {
+                            <a href="@Url.Action("AddCusBookRoom","Employ")" title="Đăng ký CMND để đặt phòng">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                    }
+
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <p> </p>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary" name="aAdd">
-                        <i class="fa fa-plus"></i>
-                        &nbsp;Đặt phòng
+                        Tiếp tục &nbsp;
+                        <i class="fas fa-arrow-right"></i>                        
                     </button>
                 </div>
             </div>
-        }
+        </form>
+
     </div>
 </div>

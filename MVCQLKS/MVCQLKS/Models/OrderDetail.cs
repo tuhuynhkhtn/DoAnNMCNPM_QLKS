@@ -15,6 +15,7 @@ namespace MVCQLKS.Models
     public partial class OrderDetail
     {
         public int OrderID { get; set; }
+        public int CusID { get; set; }
         public int RoomID { get; set; }
         public int Quantity { get; set; }
         public int StatusForeignCus { get; set; }

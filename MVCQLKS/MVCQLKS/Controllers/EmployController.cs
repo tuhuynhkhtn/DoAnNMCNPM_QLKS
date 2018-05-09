@@ -107,7 +107,7 @@ namespace MVCQLKS.Views
                     return RedirectToAction("QuanLyCusBookRoom");
                 }
             }
-            return View("AddCus");
+            return View("AddCusChoNV");
         }
 
         public ActionResult AddCus()
