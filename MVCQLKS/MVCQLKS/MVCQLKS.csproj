@@ -135,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\bootstrap-datepicker3.min.css" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -145,6 +146,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\js\additional-methods.min.js" />
+    <Content Include="Content\js\bootstrap-datepicker.min.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\fontawesome-all.js" />
@@ -299,7 +301,9 @@
     <Content Include="Views\Employ\QuanLyCusChoNV.cshtml" />
     <Content Include="Views\Employ\AddCusBookRoom.cshtml" />
     <Content Include="Views\Employ\AddCusChoNV.cshtml" />
-    <Content Include="Views\Order\RegisOrder.cshtml" />
+    <Content Include="Views\Order\RegisterOrder.cshtml" />
+    <Content Include="Views\Order\RegisterOrderNext.cshtml" />
+    <Content Include="Views\Order\RegisterOrderLast.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

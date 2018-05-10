@@ -10,7 +10,7 @@ namespace MVCQLKS.Controllers
     public class OrderController : Controller
     {
         // GET: Order
-        public ActionResult RegisOrder(int? id)
+        public ActionResult RegisterOrder(int? id)
         {
             using (var dc = new QLKSEntities())
             {
@@ -31,7 +31,7 @@ namespace MVCQLKS.Controllers
             String CMND = cus.CusIDCardInfo;
 
             ViewBag.id = Id;
-            ViewBag.name = CMND;
+            ViewBag.cmnd = CMND;
             ViewBag.IdPhong = Id;
 
             using (var dc = new QLKSEntities())
@@ -43,10 +43,33 @@ namespace MVCQLKS.Controllers
                 }
                 else
                 {
-                    return View("RegisOrderNext");
+                    return View("RegisterOrderNext");
                 }
             }
-            return View("RegisOrder");
+            return View("RegisterOrder");
+        }
+
+        public ActionResult KiemTraNgayTraPhong(OrderDetailInfo order)
+        {
+            String Id = Request.Form["Id"];
+            String CMND = Request.Form["Cmnd"];
+            DateTime Date = order.OrderCheckOutInfo;
+
+            ViewBag.id = Id;
+            ViewBag.cmnd = CMND;
+            ViewBag.date = Date;
+
+            DateTime dtNow = DateTime.Now;
+            DateTime dt = order.OrderCheckOutInfo;
+
+            int result = DateTime.Compare(dt, dtNow);
+            if (result < 0)
+            {
+                ViewBag.ErrorMsg = "Ngày trả phòng phải lớn hơn hoặc bằng ngày hiện tại";
+            }
+
+
+            return View("RegisterOrderLast");
         }
 
     }

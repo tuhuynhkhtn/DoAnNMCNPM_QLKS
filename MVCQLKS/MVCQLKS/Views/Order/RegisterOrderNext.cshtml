@@ -1,0 +1,88 @@
+﻿@using MVCQLKS.Models
+@model OrderDetailInfo
+
+@section ContentHeader{
+    Đăng ký thuê phòng
+}
+
+@section style{
+    <link href="~/Content/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="~/Content/css/summernote.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
+
+}
+
+
+@section script{
+    <script src="~/Content/js/bootstrap-select.min.js"></script>
+    <script src="~/Content/js/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/Content/js/summernote.min.js"></script>
+    <script src="~/Content/js/jquery.validate.min.js"></script>
+    <script src="~/Content/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            //format: 'mm/dd/yyyy',
+            format: 'd/m/yyyy',
+            todayHighlight: true,
+            autoclose: true
+        });
+        $('a[name="aAdd"]').on('click', function () {
+            //alert(1);
+            //var pId = ($(this).data('id'));
+            $('#Id').val(@ViewBag.IdPhong);
+            //$('#frmAddNSXI').submit();
+        });
+    </script>
+
+}
+
+<p> @ViewBag.id </p>
+<p> @ViewBag.cmnd </p>
+
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.ErrorMsg != null)
+        {
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                @ViewBag.ErrorMsg
+            </div>
+            //<p class="error">@ViewBag.ErrorMsg</p>
+            //<p class="alert alert-warning" role="alert">@ViewBag.ErrorMsg</p>
+        }
+
+        <form action="@Url.Action("KiemTraNgayTraPhong", "Order")" method="post" id="frmAdd">
+            <input type="hidden" id="Id" name="Id" value="@ViewBag.id" />
+            <input type="hidden" id="Cmnd" name="Cmnd" value="@ViewBag.cmnd" />
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.OrderCheckOutInfo, "Ngày trả phòng: ", new { @class = "col-sm-2 control-label", name = "Ngaytraphong" })
+                <div class="col-sm-4">
+                    @Html.TextBoxFor(m => m.OrderCheckOutInfo, new { @class = "form-control datepicker", placeholder = "d/m/yyyy", name = "Ngaytraphong" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p> </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" name="aAdd">
+                        Tiếp tục &nbsp;
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
